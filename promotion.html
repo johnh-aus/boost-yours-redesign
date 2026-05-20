@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Boost Yours — Stop Guessing. Start Growing.</title>
+  <meta name="description" content="Building predictable lead and sales systems for service businesses. Book a free strategy call today."/>
+  <meta name="robots" content="noindex, nofollow"/>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet"/>
+
+  <!-- Swiper.js 11 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Shared Styles -->
+  <link rel="stylesheet" href="style.css"/>
+
+  <style>
+    /* ─── Landing page nav (no links, CTA only) ─── */
+    .promo-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 0 24px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: transparent;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .promo-nav.scrolled {
+      background: rgba(7, 14, 26, 0.97);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+    .promo-nav-logo img {
+      height: 42px;
+      width: auto;
+      border-radius: 6px;
+    }
+    .promo-nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--orange);
+      color: #fff;
+      padding: 0.65rem 1.4rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+    .promo-nav-cta:hover {
+      background: var(--orange-hover);
+      transform: translateY(-1px);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--navy-dark);
+    }
+    .hero-video-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.55;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(13,10,26,0.55) 0%, rgba(26,14,61,0.45) 100%);
+      z-index: 1;
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      padding: 160px 0 120px;
+      width: 100%;
+    }
+    .hero-inner .container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .hero-content { max-width: 740px; }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 .orange { color: var(--orange); }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      line-height: 1.65;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .google-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.85rem;
+      background: rgba(255,255,255,0.10);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 14px;
+      padding: 0.75rem 1.25rem;
+      margin-top: 2rem;
+    }
+    .google-badge-logo { flex-shrink: 0; }
+    .google-badge-title { font-size: 0.85rem; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 0.2rem; }
+    .google-badge-stars { display: flex; align-items: center; gap: 2px; margin-bottom: 0.2rem; }
+    .google-badge-star { color: #FBBC05; font-size: 0.85rem; line-height: 1; }
+    .google-badge-score { font-size: 0.8rem; font-weight: 700; color: #fff; margin-left: 4px; }
+    .google-badge-sub { font-size: 0.68rem; color: rgba(255,255,255,0.55); line-height: 1.3; }
+
+    /* Scroll arrow */
+    .scroll-arrow {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      color: rgba(255,255,255,0.4);
+      font-size: 1.5rem;
+      animation: bounce 2s ease-in-out infinite;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .scroll-arrow:hover { color: var(--orange); }
+
+    /* Stats */
+    .stats-section {
+      background: #fff;
+      padding: 80px 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+    }
+    @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+    .stat-item {
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border-right: 1px solid #e5e7eb;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item:nth-child(2n) { border-right: none; }
+    @media (min-width: 768px) {
+      .stat-item:nth-child(2n) { border-right: 1px solid #e5e7eb; }
+      .stat-item:last-child { border-right: none; }
+    }
+    .stat-number {
+      font-size: clamp(2.4rem, 5vw, 3.5rem);
+      font-weight: 900;
+      color: var(--navy-dark);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 2px;
+    }
+    .stat-suffix { font-size: 2rem; color: var(--orange); }
+    .stat-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    /* Opening Letter */
+    .letter-section {
+      background: #fff;
+      padding: 80px 0 100px;
+      position: relative;
+      clip-path: polygon(0 40px, 100% 0, 100% calc(100% - 40px), 0 100%);
+      margin: -1px 0;
+    }
+    .letter-inner { position: relative; z-index: 2; }
+    .letter-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--orange);
+      margin-bottom: 1.5rem;
+    }
+    .letter-heading {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      color: var(--navy-dark);
+      line-height: 0.96;
+      margin-bottom: 2rem;
+    }
+    .letter-body p {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: #374151;
+      margin-bottom: 1.25rem;
+      max-width: 680px;
+    }
+    .letter-body strong { color: var(--navy-dark); font-weight: 700; }
+    .letter-list {
+      list-style: none;
+      margin: 1rem 0 1.5rem;
+      padding: 0;
+    }
+    .letter-list li {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #374151;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .letter-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--orange);
+      font-size: 0.8em;
+      top: 2px;
+    }
+
+    /* Offering Cards */
+    .offering-section {
+      background: var(--light-bg);
+      padding: 60px 0 60px;
+      position: relative;
+      z-index: 2;
+    }
+    .offering-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    @media (min-width: 768px) { .offering-grid { grid-template-columns: 1fr 1fr; } }
+    .offering-card {
+      padding: 2.5rem;
+      border-radius: 16px;
+      position: relative;
+      background: #3d3d3d;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+    .offering-tag {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--orange);
+      margin-bottom: 0.5rem;
+    }
+    .offering-card h3 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      line-height: 0.96;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .offering-card p {
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
+      color: rgba(255,255,255,0.85);
+    }
+    .offering-features {
+      list-style: none;
+      margin-bottom: 2rem;
+      flex: 1;
+    }
+    .offering-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.75);
+      padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .offering-features li:last-child { border-bottom: none; }
+    .offering-features li::before {
+      content: "•";
+      color: var(--orange);
+      font-size: 1.1rem;
+      line-height: 1.4;
+      flex-shrink: 0;
+    }
+    .offering-card .btn { width: 100%; text-align: center; margin-top: auto; }
+
+    /* Anti-Retainer */
+    .anti-retainer {
+      background: var(--navy-mid);
+      padding: 60px 0;
+      position: relative;
+      z-index: 2;
+    }
+    .anti-retainer-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    @media (min-width: 768px) { .anti-retainer-inner { grid-template-columns: 1fr auto; } }
+    .anti-retainer-badge {
+      width: 72px;
+      height: 72px;
+      background: var(--orange);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 1.25rem;
+      flex-shrink: 0;
+    }
+    .anti-retainer h2 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      line-height: 0.96;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .anti-retainer h2 span { color: var(--orange); }
+    .anti-retainer p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.65;
+      max-width: 560px;
+    }
+    .anti-retainer-border { border: 2px solid var(--orange); border-radius: 16px; padding: 2.5rem; }
+
+    /* Marquee */
+    .marquee-section {
+      background: #fff;
+      padding: 60px 0;
+      overflow: hidden;
+    }
+    .marquee-label {
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    /* Testimonials */
+    .testimonial-section {
+      background: var(--light-bg);
+      padding: 80px 0 100px;
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+    @media (max-width: 900px) { .testimonial-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 580px) { .testimonial-grid { grid-template-columns: 1fr; } }
+    .testimonial-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      position: relative;
+    }
+    .test-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 1rem; }
+    .test-quote { font-size: 0.95rem; line-height: 1.7; color: var(--text-muted); flex: 1; margin-bottom: 1.5rem; font-style: italic; }
+    .test-result-badge {
+      display: inline-block;
+      background: var(--orange-tint);
+      color: var(--orange);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+    .test-author { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .test-author-info strong { display: block; font-size: 0.875rem; font-weight: 700; color: var(--navy-dark); }
+    .test-author-info span { font-size: 0.78rem; color: var(--text-muted); }
+    .test-video-btn {
+      width: 40px;
+      height: 40px;
+      background: var(--orange);
+      border: none;
+      border-radius: 50%;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .test-video-btn:hover { background: var(--orange-hover); transform: scale(1.1); }
+    .test-video-btn i { font-size: 0.75rem; margin-left: 2px; }
+
+    /* Case Studies Swiper */
+    .case-section {
+      background: var(--navy-mid);
+      padding: 80px 0 60px;
+      overflow: hidden;
+    }
+    .case-swiper { overflow: visible !important; margin-top: 3rem; }
+    .case-slide { border-radius: 12px; overflow: hidden; position: relative; height: 420px; cursor: pointer; }
+    .case-slide-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s ease;
+    }
+    .case-slide:hover .case-slide-bg { transform: scale(1.04); }
+    .case-slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(7,14,26,0.92) 0%, rgba(7,14,26,0.3) 50%, transparent 100%);
+    }
+    .case-slide-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; }
+    .case-industry-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 4px 10px;
+      border-radius: 100px;
+      background: var(--orange);
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+    .case-slide-content h3 {
+      font-size: 1.3rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    .case-result { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-bottom: 1rem; }
+
+    /* Team */
+    .team-section { background: #fff; padding: 80px 0; }
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+    @media (min-width: 640px) { .team-grid { grid-template-columns: 1fr 1fr; } }
+    .team-card { border-radius: 12px; overflow: hidden; background: var(--light-bg); }
+    .team-photo-wrap { width: 100%; aspect-ratio: 4/3; overflow: hidden; background: var(--navy-mid); }
+    .team-photo { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+    .team-photo-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--navy-mid), var(--navy-dark));
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: -0.02em;
+    }
+    .team-info { padding: 1.75rem; }
+    .team-name { font-size: 1.3rem; font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; color: var(--navy-dark); margin-bottom: 0.25rem; }
+    .team-role { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--orange); margin-bottom: 1rem; }
+    .team-bio { font-size: 0.9rem; line-height: 1.7; color: var(--text-muted); }
+
+    /* FAQ */
+    .faq-section { background: var(--light-bg); padding: 80px 0; }
+    .faq-list { margin-top: 3rem; }
+    .faq-item { border-bottom: 1px solid #e5e7eb; }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 1.5rem 1.25rem 1.5rem 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy-dark);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-family: inherit;
+      transition: color 0.2s;
+    }
+    .faq-question:hover { color: var(--orange); }
+    .faq-question.active { color: var(--orange); }
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid currentColor;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+    .faq-question.active .faq-icon { transform: rotate(45deg); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
+    .faq-answer.open { max-height: 600px; padding-bottom: 1.5rem; }
+    .faq-answer p { font-size: 0.95rem; line-height: 1.75; color: var(--text-muted); }
+    .faq-answer a { color: var(--orange); }
+
+    /* Video Testimonials */
+    .video-test-section { background: var(--navy-mid); padding: 80px 0 100px; }
+    .video-test-section .section-heading { color: #fff; }
+    .video-test-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 768px) { .video-test-grid { grid-template-columns: 1fr; } }
+    .video-test-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .video-test-frame { position: relative; padding-bottom: 56.25%; height: 0; background: #070E1A; }
+    .video-test-frame iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+    .video-test-info { padding: 1.25rem 1.5rem; border-top: 1px solid rgba(255,255,255,0.07); }
+    .video-test-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 0.5rem; }
+    .video-test-name { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem; }
+    .video-test-result { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange); }
+
+    /* Final CTA */
+    .final-cta {
+      background: var(--orange);
+      padding: 100px 0;
+      text-align: center;
+    }
+    .final-cta h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      line-height: 0.96;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .final-cta p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.65;
+    }
+    .final-cta .btn-white {
+      background: #fff;
+      color: var(--navy-dark);
+      border: none;
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .final-cta .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+
+    /* Promo Footer (minimal) */
+    .promo-footer {
+      background: var(--navy-dark);
+      padding: 40px 0;
+    }
+    .promo-footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .promo-footer-brand img {
+      height: 42px;
+      width: auto;
+      border-radius: 6px;
+    }
+    .promo-footer-info {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.7;
+      text-align: right;
+    }
+    .promo-footer-info a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .promo-footer-info a:hover { color: var(--orange); }
+    @media (max-width: 600px) {
+      .promo-footer-inner { flex-direction: column; align-items: center; }
+      .promo-footer-info { text-align: center; }
+    }
+
+    /* Section header shared */
+    .section-header { margin-bottom: 0; }
+    .section-eyebrow { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: var(--orange); margin-bottom: 0.75rem; }
+    .section-heading { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 900; text-transform: uppercase; letter-spacing: -0.06em; line-height: 0.96; margin-bottom: 1rem; }
+    .section-heading.light { color: #fff; }
+    .section-heading.dark { color: var(--navy-dark); }
+    .section-sub { font-size: 1rem; line-height: 1.65; max-width: 560px; }
+    .section-sub.light { color: rgba(255,255,255,0.65); }
+    .section-sub.dark { color: var(--text-muted); }
+
+    /* Video Modal */
+    .video-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 9999; align-items: center; justify-content: center; padding: 1rem; }
+    .video-modal.active { display: flex; }
+    .video-modal-inner { position: relative; width: 100%; max-width: 900px; }
+    .video-modal-ratio { position: relative; padding-bottom: 56.25%; }
+    .video-modal-ratio iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; border-radius: 8px; }
+    .video-modal-close {
+      position: absolute;
+      top: -44px;
+      right: 0;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.8rem;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .video-modal-close:hover { opacity: 1; }
+
+    /* Swiper nav */
+    .swiper-button-next, .swiper-button-prev { color: var(--orange) !important; }
+    .swiper-pagination-bullet-active { background: var(--orange) !important; }
+
+    /* Utility */
+    .text-center { text-align: center; }
+    .mt-1 { margin-top: 0.5rem; }
+    .mt-2 { margin-top: 1rem; }
+    .mt-3 { margin-top: 1.5rem; }
+    .mt-4 { margin-top: 2rem; }
+    .mb-4 { margin-bottom: 2rem; }
+
+    @media (max-width: 767px) {
+      .hero { padding: 100px 0 120px; }
+      .letter-section { padding: 60px 0 80px; }
+      .offering-section { padding: 50px 0; }
+      .anti-retainer { padding: 40px 0; }
+      .testimonial-section { padding: 60px 0 40px; }
+      .case-section { padding: 60px 0 40px; }
+      .team-section { padding: 60px 0; }
+      .faq-section { padding: 60px 0; }
+      .section-heading { font-size: clamp(2rem, 10vw, 3rem); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     1. NAVIGATION (Landing — no nav links)
+════════════════════════════════════════ -->
+<nav class="promo-nav" id="promoNav">
+  <a href="index.html" class="promo-nav-logo">
+    <img src="logo/Boost yours logo/main.png" alt="Boost Yours"/>
+  </a>
+  <a href="book-appointment.html" class="promo-nav-cta" target="_blank" rel="noopener">
+    Book a Free Call &rarr;
+  </a>
+</nav>
+
+
+<!-- ═══════════════════════════════════════
+     2. HERO
+════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-video-wrap">
+    <video autoplay muted loop playsinline poster="">
+      <source src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68bfc71efbf3b65b8694cbc3.mp4" type="video/mp4"/>
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-inner">
+    <div class="container">
+      <div class="hero-content">
+        <p class="letter-eyebrow" style="color:rgba(255,255,255,0.4);font-size:0.75rem;font-weight:600;text-transform:none;letter-spacing:0.05em;margin-bottom:1rem;">Did you know that?</p>
+        <h1>The #1 reason<br/>businesses get stuck:<br/><span class="orange">MARKETING<br/>SUCKs.</span></h1>
+        <p class="hero-sub">We build predictable lead &amp; sales systems for service businesses.</p>
+        <p style="font-size:1rem;color:rgba(255,255,255,0.5);margin-bottom:2rem;font-style:italic;">So you stop guessing and start growing.</p>
+        <div class="hero-cta">
+          <a href="book-appointment.html" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Get My Growth Plan &rarr;</a>
+          <a href="#letter" class="btn btn-outline-white btn-lg">See How It Works</a>
+        </div>
+        <div class="google-badge">
+          <div class="google-badge-logo">
+            <svg viewBox="0 0 48 48" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#4285F4" d="M47.532 24.552c0-1.636-.142-3.2-.406-4.699H24.48v8.886h12.985c-.56 3.02-2.255 5.578-4.804 7.295v6.063h7.775c4.55-4.192 7.096-10.364 7.096-17.545z"/>
+              <path fill="#34A853" d="M24.48 48c6.515 0 11.981-2.16 15.975-5.852l-7.775-6.063c-2.159 1.449-4.923 2.307-8.2 2.307-6.308 0-11.647-4.259-13.552-9.984H2.886v6.253C6.864 42.539 15.07 48 24.48 48z"/>
+              <path fill="#FBBC05" d="M10.928 28.408A14.41 14.41 0 0 1 10.04 24c0-1.527.263-3.01.888-4.408v-6.253H2.886A23.94 23.94 0 0 0 .48 24c0 3.862.925 7.516 2.406 10.661l8.042-6.253z"/>
+              <path fill="#EA4335" d="M24.48 9.608c3.553 0 6.74 1.222 9.254 3.623l6.942-6.942C36.456 2.388 30.994 0 24.48 0 15.07 0 6.864 5.461 2.886 13.339l8.042 6.253c1.905-5.725 7.244-9.984 13.552-9.984z"/>
+            </svg>
+          </div>
+          <div class="google-badge-info">
+            <div class="google-badge-title">Top Rated Service</div>
+            <div class="google-badge-stars">
+              <span class="google-badge-star">&#9733;</span>
+              <span class="google-badge-star">&#9733;</span>
+              <span class="google-badge-star">&#9733;</span>
+              <span class="google-badge-star">&#9733;</span>
+              <span class="google-badge-star">&#9733;</span>
+              <span class="google-badge-score">5.0</span>
+            </div>
+            <div class="google-badge-sub">Trusted by 50+ Australian businesses</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-arrow" id="scrollArrow" title="Scroll down">&#8595;</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     3. STATS TICKER
+════════════════════════════════════════ -->
+<section class="stats-section" id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">
+          <span class="count-up" data-target="300">0</span><span class="stat-suffix">+</span>
+        </div>
+        <p class="stat-label">Students in 6 Months</p>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">
+          <span class="count-up" data-target="200">0</span><span class="stat-suffix">%</span>
+        </div>
+        <p class="stat-label">Sales Lift in 2 Weeks</p>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">
+          <span class="count-up" data-target="5">0</span><span class="stat-suffix">×</span>
+        </div>
+        <p class="stat-label">Café Revenue Growth</p>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">
+          <span class="count-up" data-target="100">0</span><span class="stat-suffix">+</span>
+        </div>
+        <p class="stat-label">Monthly Inquiries</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     4. OPENING LETTER
+════════════════════════════════════════ -->
+<section class="letter-section" id="letter">
+  <div class="container">
+    <div class="letter-inner">
+      <p class="letter-eyebrow">Update: <span id="live-date"></span></p>
+      <h2 class="letter-heading">Hey business owner,</h2>
+      <p style="font-size:1.05rem;color:#6b7280;margin-bottom:2rem;margin-top:-0.75rem;">We understand it.</p>
+      <div class="letter-body">
+        <p>Running a business isn't just hard.<br/><strong>It's f*cking hard.</strong></p>
+        <p>You're probably worried about where your next customer will come from.</p>
+        <p>One day you're fixing your website.<br/>
+        The next, you're trying to figure out Instagram,<br/>
+        Then someone tells you, <strong>TikTok is the Key!</strong><br/>
+        or <em>"You NEED a personal brand."</em><br/>
+        And don't even get started on email flows, SEO, or chatbots.</p>
+        <p>You've probably said this to yourself:</p>
+        <ul class="letter-list">
+          <li>"I should post more."</li>
+          <li>"Maybe I need a new website."</li>
+          <li>"Everyone's doing Reels... I guess I should too."</li>
+          <li>"Do I need to run ads?"</li>
+          <li>"Should I hire someone?"</li>
+          <li>"What am I even doing anymore?"</li>
+        </ul>
+        <p>It's not that you're not working hard.<br/>
+        It's that you're <strong>pulled in so many directions</strong>, you don't even know what working means anymore.</p>
+        <p>And meanwhile...</p>
+        <p><strong>You want more.</strong><br/>
+        More Money.<br/>
+        More stability.<br/>
+        More freedom.<br/>
+        More memories.<br/>
+        More time with your family.</p>
+        <p>Whatever brought you here — there's a reason.<br/>
+        You're not crazy.<br/>
+        You're not lazy.<br/>
+        <strong>You just need a new kind of clarity.</strong></p>
+        <p style="font-size:1.1rem;color:var(--navy-dark);font-weight:700;margin-top:2rem;">It all starts by choosing your next step below&nbsp;↓</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     5. OFFERING CARDS
+════════════════════════════════════════ -->
+<section class="offering-section" id="offering">
+  <div class="container">
+    <div class="section-header text-center">
+      <p class="section-eyebrow">So what do we actually do?</p>
+      <h2 class="section-heading dark">Two Paths.<br/>One System.</h2>
+      <p class="section-sub dark" style="margin:0 auto;">We diagnose before we prescribe. Start with the Workshop to get clarity — or go straight to Agency if you're ready to hand it over.</p>
+    </div>
+    <div class="offering-grid">
+
+      <!-- Workshop Card -->
+      <div class="offering-card">
+        <span class="offering-tag">Clarity First</span>
+        <h3>Workshop</h3>
+        <p>For owners who want a clear plan before scaling.</p>
+        <ul class="offering-features">
+          <li>Deep diagnosis of your current funnel</li>
+          <li>Identify where leads, conversions, or follow-ups are leaking</li>
+          <li>Clear 90-day growth roadmap</li>
+          <li>Execution checklist your team can follow</li>
+        </ul>
+        <a href="book-appointment.html" class="btn btn-primary" target="_blank" rel="noopener">Get My Growth Plan &rarr;</a>
+      </div>
+
+      <!-- Agency Card -->
+      <div class="offering-card">
+        <span class="offering-tag">Done For You.</span>
+        <h3>Agency</h3>
+        <p>For owners who want results without operational burden.</p>
+        <ul class="offering-features">
+          <li>End-to-end acquisition system</li>
+          <li>Funnels, ads, tracking, automation built and managed</li>
+          <li>Ongoing optimisation and reporting</li>
+          <li>Focus on closing — not chasing leads</li>
+        </ul>
+        <a href="book-appointment.html" class="btn btn-primary" target="_blank" rel="noopener">Let's Talk &rarr;</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     6. ANTI-RETAINER SECTION
+════════════════════════════════════════ -->
+<section class="anti-retainer" id="guarantee">
+  <div class="container">
+    <div class="anti-retainer-border">
+      <div class="anti-retainer-inner">
+        <div>
+          <div class="anti-retainer-badge">&#128081;</div>
+          <h2>We don't sell retainers.<br/>We bring you <span>the clarity.</span></h2>
+          <p>Most agencies keep you dependent on them forever. We diagnose before we prescribe. We build systems that work without us — giving you ownership, clarity, and control of your own growth. No 12-month lock-ins. No vague reporting. No excuses.</p>
+        </div>
+        <div style="flex-shrink:0;">
+          <a href="book-appointment.html" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Book a Free Call &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     7. CLIENT MARQUEE
+════════════════════════════════════════ -->
+<section class="marquee-section" id="clients">
+  <p class="marquee-label">Trusted by Australian businesses</p>
+
+  <!-- Row 1: scroll left -->
+  <div class="marquee-wrap" style="margin-bottom:12px;">
+    <div class="marquee-fade-l"></div>
+    <div class="marquee-fade-r"></div>
+    <div class="marquee-track left" id="marquee1">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0589a2cacb56f1de5cc4.jpeg" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05afdc045eb9bbf2a7da.svg" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa07e4dc045e0fe4f2edbf.png" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa03c7dc045e11a6f27605.jpeg" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa06c3a2cacb3f24de88b0.png" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0727778d65c246730702.png" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05fbdc045e2607f2af61.png" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa093787b77c40173e5b56.png" alt="Client">
+      <!-- duplicate for seamless loop -->
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0589a2cacb56f1de5cc4.jpeg" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05afdc045eb9bbf2a7da.svg" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa07e4dc045e0fe4f2edbf.png" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa03c7dc045e11a6f27605.jpeg" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa06c3a2cacb3f24de88b0.png" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0727778d65c246730702.png" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05fbdc045e2607f2af61.png" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa093787b77c40173e5b56.png" alt="Client">
+    </div>
+  </div>
+
+  <!-- Row 2: scroll right -->
+  <div class="marquee-wrap">
+    <div class="marquee-fade-l"></div>
+    <div class="marquee-fade-r"></div>
+    <div class="marquee-track right" id="marquee2">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0974a2db29c9ed47a612.png" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa09f2dc045e22fcf33ab5.png" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0ab8dc045e4b41f35793.png" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05d1a2cacb869bde644b.jpeg" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0579dc045eaf03f2a29f.png" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa08f3778d6578ea7347cb.png" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0780778d6545e97310e4.png" alt="Client">
+      <img class="marquee-logo" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/69af934113dc9c8a555506ca.jpg" alt="Client">
+      <img class="marquee-logo" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/6a05dd33a97d962a35cb5c42.png" alt="Client">
+      <img class="marquee-logo" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/6a05dcfbcf7891b0faa7078c.png" alt="Client">
+      <!-- duplicate -->
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0974a2db29c9ed47a612.png" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa09f2dc045e22fcf33ab5.png" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0ab8dc045e4b41f35793.png" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05d1a2cacb869bde644b.jpeg" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0579dc045eaf03f2a29f.png" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa08f3778d6578ea7347cb.png" alt="Client">
+      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0780778d6545e97310e4.png" alt="Client">
+      <img class="marquee-logo" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/69af934113dc9c8a555506ca.jpg" alt="Client">
+      <img class="marquee-logo" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/6a05dd33a97d962a35cb5c42.png" alt="Client">
+      <img class="marquee-logo" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/6a05dcfbcf7891b0faa7078c.png" alt="Client">
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     8. TESTIMONIALS
+════════════════════════════════════════ -->
+<section class="testimonial-section" id="testimonials">
+  <div class="container">
+    <div class="section-header text-center mb-4">
+      <p class="section-eyebrow">Client stories</p>
+      <h2 class="section-heading dark">Real Results.<br/>Real Businesses.</h2>
+    </div>
+
+    <div class="testimonial-grid">
+
+      <div class="testimonial-card">
+        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-quote">"What I appreciated most was the genuine understanding of our business before recommending anything. No cookie-cutter solutions — just real, tailored strategy that worked."</p>
+        <span class="test-result-badge">Consistent Pipeline</span>
+        <div class="test-author">
+          <div class="test-author-info">
+            <strong>Director</strong>
+            <span>SC Architecture</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-quote">"More than 100+ inquiries every month and bookings drive consistent growth. We didn't think it was possible to build something this reliable — but here we are."</p>
+        <span class="test-result-badge">+100 Leads Monthly</span>
+        <div class="test-author">
+          <div class="test-author-info">
+            <strong>CEO</strong>
+            <span>Vision Asset Group</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-quote">"We went from 160 to 300+ enrolled students in 6 months. The system they built practically runs itself now — I spend less time on marketing and more time teaching."</p>
+        <span class="test-result-badge">+87% Students</span>
+        <div class="test-author">
+          <div class="test-author-info">
+            <strong>Founder</strong>
+            <span>My Korean School</span>
+          </div>
+          <button class="test-video-btn" data-video-id="pzhubf7v6p" data-video-type="wistia" aria-label="Watch video testimonial">
+            <i class="fas fa-play"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-quote">"Outstanding branding and marketing execution. They understood our brand voice immediately and delivered campaigns that genuinely resonated with our audience."</p>
+        <span class="test-result-badge">Brand Excellence</span>
+        <div class="test-author">
+          <div class="test-author-info">
+            <strong>Regional Manager</strong>
+            <span>Koala</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-quote">"Exceptional problem-solving and marketing strategy expertise. The team brought fresh thinking and executed with precision. Would work with Boost Yours again without hesitation."</p>
+        <span class="test-result-badge">Strategic Partnership</span>
+        <div class="test-author">
+          <div class="test-author-info">
+            <strong>Vice President</strong>
+            <span>Breville</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-quote">"2× growth in 6 months, 4× after that. Named Sydney Top 5 cafe! We went from barely surviving to having a queue out the door every weekend."</p>
+        <span class="test-result-badge">5× Business Growth</span>
+        <div class="test-author">
+          <div class="test-author-info">
+            <strong>Director</strong>
+            <span>Afterglow Eatery</span>
+          </div>
+          <button class="test-video-btn" data-video-id="qx8i6uv2ti" data-video-type="wistia" aria-label="Watch video testimonial">
+            <i class="fas fa-play"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-quote">"We now have steady inquiries and improved weekday traffic. For a hospitality business, consistency is everything — and Boost Yours delivered exactly that."</p>
+        <span class="test-result-badge">Steady Weekday Traffic</span>
+        <div class="test-author">
+          <div class="test-author-info">
+            <strong>Director</strong>
+            <span>La Bouitte Sydney</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-quote">"We're now the #1 cafe in town. I never thought marketing could make such a tangible difference. The team understood hospitality and delivered beyond expectations."</p>
+        <span class="test-result-badge">#1 Café in Town</span>
+        <div class="test-author">
+          <div class="test-author-info">
+            <strong>Managing Director</strong>
+            <span>Too Good Cafe</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-quote">"Our sales lifted 200% once the ads and funnel launched in 2 weeks. I couldn't believe how fast it worked. The clarity session alone was worth it."</p>
+        <span class="test-result-badge">+200% Sales</span>
+        <div class="test-author">
+          <div class="test-author-info">
+            <strong>Owner</strong>
+            <span>Inner Beauty</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-quote">"The SEO strategy completely shifted our customer base. We went from being known only in the Korean community to attracting local customers from all across Sydney."</p>
+        <span class="test-result-badge">Expanded Local Reach</span>
+        <div class="test-author">
+          <div class="test-author-info">
+            <strong>Owner</strong>
+            <span>Eva Pregnancy</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Video Modal -->
+<div class="video-modal" id="videoModal" role="dialog" aria-modal="true">
+  <div class="video-modal-inner">
+    <button class="video-modal-close" id="videoModalClose" aria-label="Close">&times;</button>
+    <div class="video-modal-ratio" id="videoModalContent"></div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     8b. VIDEO TESTIMONIALS
+════════════════════════════════════════ -->
+<section class="video-test-section" id="video-testimonials">
+  <div class="container">
+    <p class="section-eyebrow">Hear It From Them</p>
+    <h2 class="section-heading">Real Clients.<br/>Real Results. On Camera.</h2>
+    <div class="video-test-grid">
+
+      <div class="video-test-card">
+        <div class="video-test-frame">
+          <iframe
+            src="https://fast.wistia.net/embed/iframe/pzhubf7v6p?playerColor=222222&videoFoam=true&autoPlay=true&muted=true"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+            title="MKS Melbourne — Client Testimonial">
+          </iframe>
+        </div>
+        <div class="video-test-info">
+          <div class="video-test-stars">★★★★★</div>
+          <p class="video-test-name">My Korean School (MKS Melbourne)</p>
+          <p class="video-test-result">160 → 300+ Students in 6 Months</p>
+        </div>
+      </div>
+
+      <div class="video-test-card">
+        <div class="video-test-frame">
+          <iframe
+            src="https://fast.wistia.net/embed/iframe/qx8i6uv2ti?playerColor=222222&videoFoam=true&autoPlay=true&muted=true"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+            title="Afterglow Eatery — Client Testimonial">
+          </iframe>
+        </div>
+        <div class="video-test-info">
+          <div class="video-test-stars">★★★★★</div>
+          <p class="video-test-name">Afterglow Eatery</p>
+          <p class="video-test-result">5× Growth · Named Sydney Top 5 Café</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     9. CASE STUDIES — Swiper Slider
+════════════════════════════════════════ -->
+<section class="case-section" id="case-studies">
+  <div class="container">
+    <div class="section-header" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;">
+      <div>
+        <p class="section-eyebrow">Proof of work</p>
+        <h2 class="section-heading light">Results That<br/>Speak For Themselves.</h2>
+      </div>
+    </div>
+
+    <div class="swiper case-swiper" style="overflow:hidden;margin-top:3rem;padding-bottom:1rem;">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="case-slide">
+            <div class="case-slide-bg" style="background: linear-gradient(135deg, #1c2e4a 0%, #0a1a2e 100%); display:flex; align-items:center; justify-content:center;">
+              <div style="text-align:center; color:rgba(255,255,255,0.12); font-size:3rem; font-weight:900; text-transform:uppercase; letter-spacing:-0.04em; line-height:1; padding:2rem;">VISION<br/>ASSET</div>
+            </div>
+            <div class="case-slide-overlay"></div>
+            <div class="case-slide-content">
+              <span class="case-industry-tag">Real Estate</span>
+              <h3>Vision Asset Group</h3>
+              <p class="case-result">100+ Monthly Inquiries · $10M–$15M Revenue</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="case-slide">
+            <div class="case-slide-bg" style="background: linear-gradient(135deg, #1a3a5c 0%, #0B2147 100%); display:flex; align-items:center; justify-content:center;">
+              <div style="text-align:center; color:rgba(255,255,255,0.15); font-size:4rem; font-weight:900; text-transform:uppercase; letter-spacing:-0.05em; line-height:1; padding:2rem;">MKS<br/>MELB</div>
+            </div>
+            <div class="case-slide-overlay"></div>
+            <div class="case-slide-content">
+              <span class="case-industry-tag">Education</span>
+              <h3>MKS Melbourne</h3>
+              <p class="case-result">160 → 300+ Students in 6 Months</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="case-slide">
+            <div class="case-slide-bg" style="background: linear-gradient(135deg, #2d1a0a 0%, #1a0f05 100%); display:flex; align-items:center; justify-content:center;">
+              <div style="text-align:center; color:rgba(255,255,255,0.12); font-size:3rem; font-weight:900; text-transform:uppercase; letter-spacing:-0.04em; line-height:1; padding:2rem;">AFTER<br/>GLOW</div>
+            </div>
+            <div class="case-slide-overlay"></div>
+            <div class="case-slide-content">
+              <span class="case-industry-tag">Hospitality</span>
+              <h3>Afterglow Eatery</h3>
+              <p class="case-result">4× Revenue Growth · Sydney Top 5 Café</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="case-slide">
+            <div class="case-slide-bg" style="background: linear-gradient(135deg, #0a1a1a 0%, #051010 100%); display:flex; align-items:center; justify-content:center;">
+              <div style="text-align:center; color:rgba(255,255,255,0.12); font-size:2.5rem; font-weight:900; text-transform:uppercase; letter-spacing:-0.04em; line-height:1; padding:2rem;">RESET<br/>MEDI</div>
+            </div>
+            <div class="case-slide-overlay"></div>
+            <div class="case-slide-content">
+              <span class="case-industry-tag">K-Beauty Wellness</span>
+              <h3>Reset Medi Spa</h3>
+              <p class="case-result">+300% Revenue · Booking Rate 20% → 70%</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="swiper-pagination" style="margin-top:1.5rem;position:relative;"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     10. TEAM
+════════════════════════════════════════ -->
+<section class="team-section" id="team">
+  <div class="container">
+    <div class="section-header text-center mb-4">
+      <p class="section-eyebrow">The team</p>
+      <h2 class="section-heading dark">Built by People Who've<br/>Been in Your Shoes.</h2>
+      <p class="section-sub dark" style="margin:0 auto 3rem;">We're not career marketers who've never run a business. We've built, scaled, and yes — struggled with our own ventures. That's why our advice actually works.</p>
+    </div>
+    <div class="team-grid">
+
+      <div class="team-card">
+        <div class="team-photo-wrap">
+          <img
+            src="photo/John_Profile.png"
+            alt="John Hwang"
+            class="team-photo"
+            loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+          />
+          <div class="team-photo-placeholder" style="display:none;"><span>JH</span></div>
+        </div>
+        <div class="team-info">
+          <h3 class="team-name">John Hwang</h3>
+          <p class="team-role">Business Expert &amp; Founder</p>
+          <p class="team-bio">John has spent over a decade across Korea, Australia, and the UK building marketing systems for service businesses. With a background spanning digital strategy, paid media, and CRM automation, he's helped businesses across education, real estate, and hospitality grow predictably — without burning through budgets or locking into dead-end retainers. His obsession: making complex marketing simple.</p>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo-wrap">
+          <img
+            src="photo/Mieun_Profile.png"
+            alt="Mieun Lee"
+            class="team-photo"
+            loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+          />
+          <div class="team-photo-placeholder" style="display:none;"><span>ML</span></div>
+        </div>
+        <div class="team-info">
+          <h3 class="team-name">Mieun Lee</h3>
+          <p class="team-role">Design Director</p>
+          <p class="team-bio">Mieun brings a rare combination of creative vision and analytical rigour. From brand positioning to content strategy, she ensures every Boost Yours client has a clear, differentiated voice in their market. With roots in design and a track record in scaling consumer brands, Mieun is the reason clients don't just grow — they grow with a brand people actually remember.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     11. FAQ ACCORDION
+════════════════════════════════════════ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="section-header text-center mb-4">
+      <p class="section-eyebrow">Common questions</p>
+      <h2 class="section-heading dark">Got Questions?<br/>We've Got Answers.</h2>
+    </div>
+    <div class="faq-list" style="max-width:760px;margin:0 auto;">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What service do you provide?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>We offer two services. The <strong>Clarity First Workshop</strong> is for business owners who want to understand exactly what's blocking their growth — we diagnose your funnel, identify the leaks, and hand you a 90-day roadmap with a full execution checklist. The <strong>Done For You Agency</strong> is for owners who want us to build and run their entire acquisition system — funnels, ads, CRM automation, tracking, and ongoing optimisation. Both services are built around getting you results, not locking you into retainers.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How does that work?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>We always start with a <strong>free strategy call</strong> to understand your business, your current marketing, and where the gaps are. From there, we recommend the right path — Workshop or Agency. The Workshop is delivered in a focused session where we work through your business live. The Agency engagement begins with a full audit, then we build your system over the first 30 days, launch, and optimise continuously. You get transparent reporting throughout.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Why are you so confident?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Because we've done this before — across education, real estate, hospitality, beauty, and professional services. We have a 100% five-star review record across every client we've worked with. We've taken businesses from zero online presence to 100+ monthly leads. We've doubled enrolments, quintupled café revenue, and built sales pipelines that run on autopilot. We're confident because the results speak for themselves — and we only take on clients we're sure we can help.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What are the requirements?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>To get the most out of working with us: you should have a proven service or offer with real customers, a willingness to invest in paid advertising (we typically recommend a minimum ad budget of $1,500/month for Agency clients), and a genuine commitment to building long-term systems — not quick fixes. We don't work with businesses looking for overnight miracles. If you're serious about sustainable growth, we're serious about delivering it.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     12. FINAL CTA BANNER
+════════════════════════════════════════ -->
+<section class="final-cta" id="cta">
+  <div class="container">
+    <h2>Start Building a Business<br/>That Grows on Its Own.</h2>
+    <p>Uncover the insider strategies for launching and expanding a thriving business. Book a free 30-minute strategy call with our team — no pitch, no pressure.</p>
+    <a href="book-appointment.html" class="btn-white" target="_blank" rel="noopener">Get Started &rarr;</a>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     13. FOOTER (minimal)
+════════════════════════════════════════ -->
+<footer class="promo-footer">
+  <div class="container">
+    <div class="promo-footer-inner">
+      <div class="promo-footer-brand">
+        <img src="logo/Boost yours logo/main.png" alt="Boost Yours"/>
+      </div>
+      <div class="promo-footer-info">
+        <p>&copy; 2026 Boost Yours. All rights reserved.</p>
+        <p>8 White Hart Dr, Rouse Hill NSW 2155, Australia</p>
+        <p><a href="mailto:john.h@boost-yours.com">john.h@boost-yours.com</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ── 1. Sticky Nav shadow ── */
+  var nav = document.getElementById('promoNav');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  /* ── 2. Scroll arrow ── */
+  var scrollArrow = document.getElementById('scrollArrow');
+  if (scrollArrow) {
+    scrollArrow.addEventListener('click', function () {
+      document.getElementById('stats').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+
+  /* ── 3. CountUp on IntersectionObserver ── */
+  function countUp(el) {
+    var target = parseInt(el.dataset.target, 10);
+    var duration = 2000;
+    var start = null;
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      var progress = Math.min((timestamp - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target);
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  }
+
+  var countEls = document.querySelectorAll('.count-up[data-target]');
+  if ('IntersectionObserver' in window && countEls.length) {
+    var statsObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          countUp(entry.target);
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    countEls.forEach(function (el) { statsObserver.observe(el); });
+  } else {
+    countEls.forEach(function (el) { el.textContent = el.dataset.target; });
+  }
+
+  /* ── 4. Swiper: Case Studies ── */
+  new Swiper('.case-swiper', {
+    slidesPerView: 1.15,
+    spaceBetween: 20,
+    loop: true,
+    grabCursor: true,
+    pagination: { el: '.case-swiper .swiper-pagination', clickable: true },
+    breakpoints: {
+      640: { slidesPerView: 1.8, spaceBetween: 24 },
+      1024: { slidesPerView: 2.5, spaceBetween: 28 }
+    }
+  });
+
+  /* ── 5. Video Modal ── */
+  var videoModal = document.getElementById('videoModal');
+  var videoModalContent = document.getElementById('videoModalContent');
+  var videoModalClose = document.getElementById('videoModalClose');
+
+  document.querySelectorAll('.test-video-btn[data-video-id]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var videoId = btn.dataset.videoId;
+      var videoType = btn.dataset.videoType || 'youtube';
+      var src = videoType === 'wistia'
+        ? 'https://fast.wistia.net/embed/iframe/' + videoId + '?autoPlay=true&playerColor=FF0000'
+        : 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0';
+      videoModalContent.innerHTML =
+        '<iframe src="' + src + '" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+      videoModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeVideoModal() {
+    videoModalContent.innerHTML = '';
+    videoModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  videoModalClose.addEventListener('click', closeVideoModal);
+  videoModal.addEventListener('click', function (e) {
+    if (e.target === videoModal) closeVideoModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeVideoModal();
+  });
+
+  /* ── 6. FAQ Accordion ── */
+  document.querySelectorAll('.faq-question').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var answer = btn.nextElementSibling;
+      var isOpen = answer.classList.contains('open');
+      document.querySelectorAll('.faq-answer.open').forEach(function (a) {
+        a.classList.remove('open');
+        a.previousElementSibling.classList.remove('active');
+        a.previousElementSibling.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        answer.classList.add('open');
+        btn.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* ── 7. Marquee pause on hover ── */
+  document.querySelectorAll('.marquee-wrap').forEach(function (wrap) {
+    var track = wrap.querySelector('.marquee-track');
+    wrap.addEventListener('mouseenter', function () {
+      if (track) track.style.animationPlayState = 'paused';
+    });
+    wrap.addEventListener('mouseleave', function () {
+      if (track) track.style.animationPlayState = 'running';
+    });
+  });
+
+})();
+
+// Live date
+(function() {
+  var el = document.getElementById('live-date');
+  if (!el) return;
+  var d = new Date();
+  var day   = String(d.getDate()).padStart(2,'0');
+  var month = String(d.getMonth()+1).padStart(2,'0');
+  var year  = d.getFullYear();
+  el.textContent = day + ' / ' + month + ' / ' + year;
+})();
+</script>
+
+<script src="animations.js"></script>
+</body>
+</html>
