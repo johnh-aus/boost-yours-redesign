@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>You're Booked — Boost Yours</title>
+  <meta name="description" content="Your strategy call is booked. Check your inbox for the calendar invite."/>
+  <meta name="robots" content="noindex, nofollow"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+
+  <style>
+    .booking-page { background: var(--light-bg); min-height: 100vh; }
+    .ty-hero { background: var(--light-bg); padding: 180px 0 100px; text-align: center; }
+    .ty-icon { font-size: 3.5rem; color: var(--orange); margin-bottom: 1.5rem; }
+    .ty-hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900; text-transform: uppercase;
+      letter-spacing: -0.04em; line-height: 1;
+      color: var(--navy-dark); margin-bottom: 1rem;
+    }
+    .ty-hero p { font-size: 1.05rem; color: var(--text-muted); max-width: 520px; margin: 0 auto 2rem; line-height: 1.7; }
+    .ty-steps { max-width: 520px; margin: 0 auto 2.5rem; text-align: left; }
+    .ty-step { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.6rem 0; color: var(--navy-dark); font-weight: 600; }
+    .ty-step i { color: var(--orange); margin-top: 0.2rem; }
+  </style>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '796036776506645');
+  fbq('track', 'PageView');
+  fbq('track', 'Schedule');
+  fbq('track', 'Lead');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=796036776506645&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DEWSG36Q5R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DEWSG36Q5R');
+    gtag('event', 'generate_lead', { event_category: 'booking', event_label: 'strategy_call' });
+  </script>
+
+  <link rel="icon" href="/favicon.ico" sizes="48x48"/>
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png"/>
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"/>
+  <meta name="theme-color" content="#0F0F0F"/>
+</head>
+<body class="booking-page">
+
+<nav class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="logo/Boost yours logo/main.png" alt="Boost Yours" class="nav-logo-img"/></a>
+    <ul class="nav-links">
+      <li class="has-dropdown"><a href="/#offering">Services</a><ul class="nav-dropdown"><li><a href="/workshop">Workshop</a></li><li><a href="/agency">Agency</a></li></ul></li>
+      <li><a href="/case-studies">Case Studies</a></li>
+      <li><a href="/#team">Team</a></li>
+      <li><a href="/book-appointment" class="nav-cta">Book a Call</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <ul>
+      <li><a href="/workshop">Workshop</a></li>
+      <li><a href="/agency">Agency</a></li>
+      <li><a href="/case-studies">Case Studies</a></li>
+      <li><a href="/#team">Team</a></li>
+    </ul>
+    <a href="/book-appointment" class="btn btn-primary nav-cta">Book a Call →</a>
+  </div>
+</nav>
+
+<section class="ty-hero">
+  <div class="container">
+    <div class="ty-icon"><i class="fas fa-circle-check"></i></div>
+    <h1>You're Booked!</h1>
+    <p>Your free strategy call is confirmed. A calendar invite is on its way to your inbox.</p>
+    <div class="ty-steps">
+      <div class="ty-step"><i class="fas fa-envelope"></i> Check your email for the confirmation &amp; calendar invite</div>
+      <div class="ty-step"><i class="fas fa-list-check"></i> Jot down your top 2–3 growth questions before the call</div>
+      <div class="ty-step"><i class="fas fa-video"></i> We'll meet you on the video link at your chosen time</div>
+    </div>
+    <a href="/case-studies" class="btn btn-primary">See Our Case Studies →</a>
+  </div>
+</section>
+
+<footer class="site-footer" id="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p>&copy; 2026 Boost Yours. All rights reserved. &nbsp;·&nbsp; 8 White Hart Dr, Rouse Hill NSW 2155, Australia &nbsp;·&nbsp; <a href="/privacy-policy" style="color:inherit;opacity:.7;">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms-of-use" style="color:inherit;opacity:.7;">Terms of Use</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+  var navToggle = document.getElementById('navToggle');
+  var navMobile = document.getElementById('navMobile');
+  navToggle.addEventListener('click', function () {
+    navToggle.classList.toggle('open');
+    navMobile.classList.toggle('open');
+  });
+  navMobile.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      navToggle.classList.remove('open');
+      navMobile.classList.remove('open');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

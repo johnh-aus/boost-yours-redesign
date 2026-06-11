@@ -3,3 +3,6 @@
 *.DS_Store
 ghl/
 cards-preview.html
+.vercel
+logo/clients/
+REVIEW-REPORT.md

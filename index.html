@@ -684,9 +684,12 @@
     .video-test-section .section-heading { color: #fff; }
     .video-test-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
       margin-top: 3rem;
+    }
+    @media (max-width: 1024px) {
+      .video-test-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
       .video-test-grid { grid-template-columns: 1fr; }
@@ -918,7 +921,7 @@
     .video-modal-close:hover { opacity: 1; }
 
     .nav-mobile .mobile-has-dropdown > span::after {
-      content: '+';
+      content: var(--after-content, '+');
       font-size: 1.1rem;
       color: var(--orange);
     }
@@ -997,6 +1000,49 @@
   </script>
 
   <meta name="google-site-verification" content="YYhaPpzgpsbwdq0dahYxdUH1n7GtMks2mYDDRvNUDG4" />
+
+  <!-- SEO / Social -->
+  <link rel="canonical" href="https://boost-yours.com/"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="Boost Yours"/>
+  <meta property="og:title" content="Boost Yours — The #1 Marketing System for Service Businesses"/>
+  <meta property="og:description" content="Building predictable lead and sales systems for service companies to enable growth. Workshop + Agency model. No retainers."/>
+  <meta property="og:url" content="https://boost-yours.com/"/>
+  <meta property="og:image" content="https://boost-yours.com/assets/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Boost Yours — The #1 Marketing System for Service Businesses"/>
+  <meta name="twitter:description" content="Building predictable lead and sales systems for service companies to enable growth. Workshop + Agency model. No retainers."/>
+  <meta name="twitter:image" content="https://boost-yours.com/assets/og-image.png"/>
+  <link rel="icon" href="/favicon.ico" sizes="48x48"/>
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png"/>
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"/>
+  <meta name="theme-color" content="#0F0F0F"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Boost Yours",
+    "url": "https://boost-yours.com",
+    "logo": "https://boost-yours.com/assets/og-image.png",
+    "email": "info@boost-yours.com",
+    "description": "We build predictable lead & sales systems for Australian service businesses.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "8 White Hart Dr",
+      "addressLocality": "Rouse Hill",
+      "addressRegion": "NSW",
+      "postalCode": "2155",
+      "addressCountry": "AU"
+    },
+    "sameAs": [
+      "https://www.instagram.com/boost_yours_au",
+      "https://www.linkedin.com/company/boost-yours",
+      "https://www.facebook.com/boostyoursau"
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -1005,18 +1051,18 @@
 ════════════════════════════════════════ -->
 <nav class="site-nav" id="siteNav">
   <div class="nav-inner">
-    <a href="index.html" class="nav-logo"><img src="logo/Boost yours logo/main.png" alt="Boost Yours" class="nav-logo-img"/></a>
+    <a href="/" class="nav-logo"><img src="logo/Boost yours logo/main.png" alt="Boost Yours" class="nav-logo-img" width="44" height="44"/></a>
     <ul class="nav-links">
       <li class="has-dropdown">
         <a href="#offering">Services</a>
         <ul class="nav-dropdown">
-          <li><a href="workshop.html">Workshop</a></li>
-          <li><a href="agency.html">Agency</a></li>
+          <li><a href="/workshop">Workshop</a></li>
+          <li><a href="/agency">Agency</a></li>
         </ul>
       </li>
-      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="/case-studies">Case Studies</a></li>
       <li><a href="#team">Team</a></li>
-      <li><a href="book-appointment.html" class="nav-cta" target="_blank" rel="noopener">Book a Call</a></li>
+      <li><a href="/book-appointment" class="nav-cta" target="_blank" rel="noopener">Book a Call</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -1027,14 +1073,14 @@
       <li class="mobile-has-dropdown">
         <span id="mobileServicesToggle">Services</span>
         <ul class="mobile-submenu" id="mobileSubmenu">
-          <li><a href="workshop.html">Workshop — Option 1</a></li>
-          <li><a href="agency.html">Agency — Option 2</a></li>
+          <li><a href="/workshop">Workshop — Option 1</a></li>
+          <li><a href="/agency">Agency — Option 2</a></li>
         </ul>
       </li>
-      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="/case-studies">Case Studies</a></li>
       <li><a href="#team">Team</a></li>
     </ul>
-    <a href="book-appointment.html" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book a Call →</a>
+    <a href="/book-appointment" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Book a Call →</a>
   </div>
 </nav>
 
@@ -1045,7 +1091,7 @@
 <section class="hero" id="hero">
   <!-- Video Background -->
   <div class="hero-video-wrap">
-    <video autoplay muted loop playsinline poster="">
+    <video autoplay muted loop playsinline preload="metadata" poster="/assets/hero-poster.jpg">
       <source src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68bfc71efbf3b65b8694cbc3.mp4" type="video/mp4"/>
     </video>
   </div>
@@ -1104,27 +1150,27 @@
     <div class="stats-grid">
       <div class="stat-item">
         <div class="stat-number">
-          <span class="count-up" data-target="300">0</span><span class="stat-suffix">+</span>
+          <span class="count-up" data-target="50">0</span><span class="stat-suffix">+</span>
         </div>
-        <p class="stat-label">Students in 6 Months</p>
+        <p class="stat-label">Monthly Inquiries</p>
       </div>
       <div class="stat-item">
         <div class="stat-number">
-          <span class="count-up" data-target="200">0</span><span class="stat-suffix">%</span>
+          <span class="count-up" data-target="217">0</span><span class="stat-suffix">%</span>
         </div>
         <p class="stat-label">Sales Lift in 2 Weeks</p>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">
+          <span class="count-up" data-target="120">0</span><span class="stat-suffix">+</span>
+        </div>
+        <p class="stat-label">New Students in 6 Months</p>
       </div>
       <div class="stat-item">
         <div class="stat-number">
           <span class="count-up" data-target="5">0</span><span class="stat-suffix">×</span>
         </div>
         <p class="stat-label">Café Revenue Growth</p>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">
-          <span class="count-up" data-target="100">0</span><span class="stat-suffix">+</span>
-        </div>
-        <p class="stat-label">Monthly Inquiries</p>
       </div>
     </div>
   </div>
@@ -1200,7 +1246,7 @@
           <li>Clear 90-day growth roadmap</li>
           <li>Execution checklist your team can follow</li>
         </ul>
-        <a href="workshop.html" class="btn btn-primary">Get My Growth Plan &rarr;</a>
+        <a href="/workshop" class="btn btn-primary">Get My Growth Plan &rarr;</a>
       </div>
 
       <!-- Agency Card -->
@@ -1214,7 +1260,7 @@
           <li>Ongoing optimisation and reporting</li>
           <li>Focus on closing — not chasing leads</li>
         </ul>
-        <a href="agency.html" class="btn btn-primary">Let's Talk &rarr;</a>
+        <a href="/agency" class="btn btn-primary">Let's Talk &rarr;</a>
       </div>
 
     </div>
@@ -1235,7 +1281,7 @@
           <p>Most agencies keep you dependent on them forever. We diagnose before we prescribe. We build systems that work without us — giving you ownership, clarity, and control of your own growth. No 12-month lock-ins. No vague reporting. No excuses.</p>
         </div>
         <div style="flex-shrink:0;">
-          <a href="book-appointment.html" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Book a Free Call &rarr;</a>
+          <a href="/book-appointment" class="btn btn-primary btn-lg" target="_blank" rel="noopener">Book a Free Call &rarr;</a>
         </div>
       </div>
     </div>
@@ -1254,23 +1300,23 @@
     <div class="marquee-fade-l"></div>
     <div class="marquee-fade-r"></div>
     <div class="marquee-track left" id="marquee1">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0589a2cacb56f1de5cc4.jpeg" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05afdc045eb9bbf2a7da.svg" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa07e4dc045e0fe4f2edbf.png" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa03c7dc045e11a6f27605.jpeg" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa06c3a2cacb3f24de88b0.png" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0727778d65c246730702.png" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05fbdc045e2607f2af61.png" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa093787b77c40173e5b56.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0589a2cacb56f1de5cc4.jpeg" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05afdc045eb9bbf2a7da.svg" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa07e4dc045e0fe4f2edbf.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa03c7dc045e11a6f27605.jpeg" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa06c3a2cacb3f24de88b0.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0727778d65c246730702.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05fbdc045e2607f2af61.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa093787b77c40173e5b56.png" alt="Client">
       <!-- duplicate for seamless loop -->
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0589a2cacb56f1de5cc4.jpeg" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05afdc045eb9bbf2a7da.svg" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa07e4dc045e0fe4f2edbf.png" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa03c7dc045e11a6f27605.jpeg" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa06c3a2cacb3f24de88b0.png" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0727778d65c246730702.png" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05fbdc045e2607f2af61.png" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa093787b77c40173e5b56.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0589a2cacb56f1de5cc4.jpeg" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05afdc045eb9bbf2a7da.svg" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa07e4dc045e0fe4f2edbf.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa03c7dc045e11a6f27605.jpeg" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa06c3a2cacb3f24de88b0.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0727778d65c246730702.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05fbdc045e2607f2af61.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa093787b77c40173e5b56.png" alt="Client">
     </div>
   </div>
 
@@ -1279,27 +1325,27 @@
     <div class="marquee-fade-l"></div>
     <div class="marquee-fade-r"></div>
     <div class="marquee-track right" id="marquee2">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0974a2db29c9ed47a612.png" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa09f2dc045e22fcf33ab5.png" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0ab8dc045e4b41f35793.png" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05d1a2cacb869bde644b.jpeg" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0579dc045eaf03f2a29f.png" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa08f3778d6578ea7347cb.png" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0780778d6545e97310e4.png" alt="Client">
-      <img class="marquee-logo" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/69af934113dc9c8a555506ca.jpg" alt="Client">
-      <img class="marquee-logo" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/6a05dd33a97d962a35cb5c42.png" alt="Client">
-      <img class="marquee-logo" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/6a05dcfbcf7891b0faa7078c.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0974a2db29c9ed47a612.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa09f2dc045e22fcf33ab5.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0ab8dc045e4b41f35793.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05d1a2cacb869bde644b.jpeg" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0579dc045eaf03f2a29f.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa08f3778d6578ea7347cb.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0780778d6545e97310e4.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/69af934113dc9c8a555506ca.jpg" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/6a05dd33a97d962a35cb5c42.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/6a05dcfbcf7891b0faa7078c.png" alt="Client">
       <!-- duplicate -->
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0974a2db29c9ed47a612.png" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa09f2dc045e22fcf33ab5.png" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0ab8dc045e4b41f35793.png" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05d1a2cacb869bde644b.jpeg" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0579dc045eaf03f2a29f.png" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa08f3778d6578ea7347cb.png" alt="Client">
-      <img class="marquee-logo" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0780778d6545e97310e4.png" alt="Client">
-      <img class="marquee-logo" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/69af934113dc9c8a555506ca.jpg" alt="Client">
-      <img class="marquee-logo" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/6a05dd33a97d962a35cb5c42.png" alt="Client">
-      <img class="marquee-logo" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/6a05dcfbcf7891b0faa7078c.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0974a2db29c9ed47a612.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa09f2dc045e22fcf33ab5.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0ab8dc045e4b41f35793.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05d1a2cacb869bde644b.jpeg" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0579dc045eaf03f2a29f.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa08f3778d6578ea7347cb.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0780778d6545e97310e4.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/69af934113dc9c8a555506ca.jpg" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/6a05dd33a97d962a35cb5c42.png" alt="Client">
+      <img class="marquee-logo" loading="lazy" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/6a05dcfbcf7891b0faa7078c.png" alt="Client">
     </div>
   </div>
 </section>
@@ -1317,6 +1363,20 @@
 
     <div class="testimonial-grid">
 
+      <!-- Real Estate -->
+      <div class="testimonial-card">
+        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-quote">"In just 6 months, we saw a measurable increase in lead quality and client conversions, especially from first-home buyers and younger investors through Meta Ads. The automated funnel and retargeting system helped streamline inquiries and improve follow-up without extra manual effort."</p>
+        <span class="test-result-badge">+50 Inquiries Monthly</span>
+        <div class="test-author">
+          <div class="test-author-info">
+            <strong>CEO</strong>
+            <span>Vision Asset Group</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Construction -->
       <div class="testimonial-card">
         <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p class="test-quote">"What I appreciated most was the genuine understanding of our business before recommending anything. No cookie-cutter solutions — just real, tailored strategy that worked."</p>
@@ -1329,22 +1389,48 @@
         </div>
       </div>
 
+      <!-- Skincare / Wellness -->
       <div class="testimonial-card">
         <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="test-quote">"More than 100+ inquiries every month and bookings drive consistent growth. We didn't think it was possible to build something this reliable — but here we are."</p>
-        <span class="test-result-badge">+100 Leads Monthly</span>
+        <p class="test-quote">"Our sales lifted 217% once the ads and funnel launched in 2 weeks. I couldn't believe how fast it worked. The clarity session alone was worth it."</p>
+        <span class="test-result-badge">+217% Sales</span>
         <div class="test-author">
           <div class="test-author-info">
-            <strong>CEO</strong>
-            <span>Vision Asset Group</span>
+            <strong>Owner</strong>
+            <span>Inner Beauty</span>
           </div>
         </div>
       </div>
 
       <div class="testimonial-card">
         <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="test-quote">"We went from 160 to 300+ enrolled students in 6 months. The system they built practically runs itself now — I spend less time on marketing and more time teaching."</p>
-        <span class="test-result-badge">+87% Students</span>
+        <p class="test-quote">"They came in when I was stuck. After that, things finally started moving. Simple as that."</p>
+        <span class="test-result-badge">Business Unstuck</span>
+        <div class="test-author">
+          <div class="test-author-info">
+            <strong>Director</strong>
+            <span>Centreline Body Clinic</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-quote">"Thanks to their SEO guidance, our business has seen an increase in revenue. We have attracted more customers, especially local ones. We used to have mostly Korean customers, but now we have lots of local customers, too."</p>
+        <span class="test-result-badge">Expanded Local Reach</span>
+        <div class="test-author">
+          <div class="test-author-info">
+            <strong>Owner</strong>
+            <span>Eva Pregnancy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="testimonial-card">
+        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-quote">"We went from 160 to 280+ enrolled students in 6 months. The system they built practically runs itself now — I spend less time on marketing and more time teaching."</p>
+        <span class="test-result-badge">+120 New Students</span>
         <div class="test-author">
           <div class="test-author-info">
             <strong>Founder</strong>
@@ -1356,6 +1442,45 @@
         </div>
       </div>
 
+      <div class="testimonial-card">
+        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-quote">"He explains every step of the process in great detail. He goes beyond marketing and even guides me through the sales side — which has been incredibly valuable. I genuinely don't feel that the weekly cost is a waste at all."</p>
+        <span class="test-result-badge">Full Growth Partnership</span>
+        <div class="test-author">
+          <div class="test-author-info">
+            <strong>Director</strong>
+            <span>Preuni New College</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sports / Fitness -->
+      <div class="testimonial-card">
+        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-quote">"We saw over 500% increase in enquiries after launching the ads. It wasn't just about running ads — it was about building a clear, revenue-focused growth strategy. It never felt like outsourcing, but more like a genuine partnership."</p>
+        <span class="test-result-badge">+500% Enquiries</span>
+        <div class="test-author">
+          <div class="test-author-info">
+            <strong>Director</strong>
+            <span>Rodem Athletics</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Consulting -->
+      <div class="testimonial-card">
+        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-quote">"I've joined different coaching programs before, but I often felt stuck. John immediately understood exactly what my challenges were. He is kind, supportive, and highly professional — truly an excellent business coach."</p>
+        <span class="test-result-badge">Expert Business Coach</span>
+        <div class="test-author">
+          <div class="test-author-info">
+            <strong>Business Owner</strong>
+            <span>Seung Young Park</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- E-commerce -->
       <div class="testimonial-card">
         <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p class="test-quote">"Outstanding branding and marketing execution. They understood our brand voice immediately and delivered campaigns that genuinely resonated with our audience."</p>
@@ -1380,6 +1505,32 @@
         </div>
       </div>
 
+      <!-- Restaurant -->
+      <div class="testimonial-card">
+        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-quote">"Since working together with the Boost Yours team, our business achieved a 200% increase in social media exposure. Our revenue also saw a 30% increase in the last 6 months. Their expertise and professionalism is really unparalleled."</p>
+        <span class="test-result-badge">+200% Social · +30% Revenue</span>
+        <div class="test-author">
+          <div class="test-author-info">
+            <strong>Director</strong>
+            <span>GOGI YAH</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="test-quote">"Within just 3 months, we noticed a clear shift — more office workers at lunch and team bookings from nearby businesses, which has helped maintain steady inquiries and improved our weekday traffic."</p>
+        <span class="test-result-badge">Steady Weekday Traffic</span>
+        <div class="test-author">
+          <div class="test-author-info">
+            <strong>Director</strong>
+            <span>La Bouitte Sydney</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cafe -->
       <div class="testimonial-card">
         <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p class="test-quote">"2× growth in 6 months, 4× after that. Named Sydney Top 5 cafe! We went from barely surviving to having a queue out the door every weekend."</p>
@@ -1397,48 +1548,12 @@
 
       <div class="testimonial-card">
         <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="test-quote">"We now have steady inquiries and improved weekday traffic. For a hospitality business, consistency is everything — and Boost Yours delivered exactly that."</p>
-        <span class="test-result-badge">Steady Weekday Traffic</span>
-        <div class="test-author">
-          <div class="test-author-info">
-            <strong>Director</strong>
-            <span>La Bouitte Sydney</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p class="test-quote">"We're now the #1 cafe in town. I never thought marketing could make such a tangible difference. The team understood hospitality and delivered beyond expectations."</p>
         <span class="test-result-badge">#1 Café in Town</span>
         <div class="test-author">
           <div class="test-author-info">
             <strong>Managing Director</strong>
             <span>Too Good Cafe</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="test-quote">"Our sales lifted 200% once the ads and funnel launched in 2 weeks. I couldn't believe how fast it worked. The clarity session alone was worth it."</p>
-        <span class="test-result-badge">+200% Sales</span>
-        <div class="test-author">
-          <div class="test-author-info">
-            <strong>Owner</strong>
-            <span>Inner Beauty</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="test-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="test-quote">"The SEO strategy completely shifted our customer base. We went from being known only in the Korean community to attracting local customers from all across Sydney."</p>
-        <span class="test-result-badge">Expanded Local Reach</span>
-        <div class="test-author">
-          <div class="test-author-info">
-            <strong>Owner</strong>
-            <span>Eva Pregnancy</span>
           </div>
         </div>
       </div>
@@ -1476,7 +1591,7 @@
         <div class="video-test-info">
           <div class="video-test-stars">★★★★★</div>
           <p class="video-test-name">My Korean School (MKS Melbourne)</p>
-          <p class="video-test-result">160 → 300+ Students in 6 Months</p>
+          <p class="video-test-result">160 → 280+ Students in 6 Months</p>
         </div>
       </div>
 
@@ -1497,6 +1612,23 @@
         </div>
       </div>
 
+      <!-- Rodem Athletics -->
+      <div class="video-test-card">
+        <div class="video-test-frame">
+          <iframe
+            src="https://fast.wistia.net/embed/iframe/uylmcq4vh7wn5yf?playerColor=222222&videoFoam=true&autoPlay=true&muted=true"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+            title="Rodem Athletics — Client Testimonial">
+          </iframe>
+        </div>
+        <div class="video-test-info">
+          <div class="video-test-stars">★★★★★</div>
+          <p class="video-test-name">Rodem Athletics</p>
+          <p class="video-test-result">Membership Sales Doubled in 3 Months</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1512,7 +1644,7 @@
         <p class="section-eyebrow">Proof of work</p>
         <h2 class="section-heading light">Results That<br/>Speak For Themselves.</h2>
       </div>
-      <a href="case-studies.html" class="btn btn-outline" style="flex-shrink:0;">View All Case Studies</a>
+      <a href="/case-studies" class="btn btn-outline" style="flex-shrink:0;">View All Case Studies</a>
     </div>
 
     <div class="swiper case-swiper" style="overflow:hidden;margin-top:3rem;padding-bottom:1rem;">
@@ -1528,8 +1660,8 @@
             <div class="case-slide-content">
               <span class="case-industry-tag">Real Estate</span>
               <h3>Vision Asset Group</h3>
-              <p class="case-result">100+ Monthly Inquiries · $10M–$15M Revenue</p>
-              <a href="vision-asset.html" class="case-link">View Full Case Study <i class="fa fa-arrow-right"></i></a>
+              <p class="case-result">50+ Monthly Inquiries · $10M–$15M Revenue</p>
+              <a href="/vision-asset" class="case-link">View Full Case Study <i class="fa fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -1544,8 +1676,8 @@
             <div class="case-slide-content">
               <span class="case-industry-tag">Education</span>
               <h3>MKS Melbourne</h3>
-              <p class="case-result">160 → 300+ Students in 6 Months</p>
-              <a href="mks.html" class="case-link">View Full Case Study <i class="fa fa-arrow-right"></i></a>
+              <p class="case-result">160 → 280+ Students in 6 Months</p>
+              <a href="/mks" class="case-link">View Full Case Study <i class="fa fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -1561,7 +1693,7 @@
               <span class="case-industry-tag">Hospitality</span>
               <h3>Afterglow Eatery</h3>
               <p class="case-result">4× Revenue Growth · Sydney Top 5 Café</p>
-              <a href="afterglow.html" class="case-link">View Full Case Study <i class="fa fa-arrow-right"></i></a>
+              <a href="/afterglow" class="case-link">View Full Case Study <i class="fa fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -1577,7 +1709,7 @@
               <span class="case-industry-tag">K-Beauty Wellness</span>
               <h3>Reset Medi Spa</h3>
               <p class="case-result">+300% Revenue · Booking Rate 20% → 70%</p>
-              <a href="reset-medi-spa.html" class="case-link">View Full Case Study <i class="fa fa-arrow-right"></i></a>
+              <a href="/reset-medi-spa" class="case-link">View Full Case Study <i class="fa fa-arrow-right"></i></a>
             </div>
           </div>
         </div>
@@ -1607,6 +1739,7 @@
           <img
             src="photo/John_Profile.png"
             alt="John Hwang"
+            width="1023" height="1537"
             class="team-photo"
             loading="lazy"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
@@ -1628,6 +1761,7 @@
           <img
             src="photo/Mieun_Profile.png"
             alt="Mieun Lee"
+            width="1254" height="1254"
             class="team-photo"
             loading="lazy"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
@@ -1685,7 +1819,7 @@
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-answer">
-          <p>Because we've done this before — across education, real estate, hospitality, beauty, and professional services. We have a 100% five-star review record across every client we've worked with. We've taken businesses from zero online presence to 100+ monthly leads. We've doubled enrolments, quintupled café revenue, and built sales pipelines that run on autopilot. We're confident because the results speak for themselves — and we only take on clients we're sure we can help.</p>
+          <p>Because we've done this before — across education, real estate, hospitality, beauty, and professional services. We have a 100% five-star review record across every client we've worked with. We've taken businesses from zero online presence to 50+ monthly inquiries. We've doubled enrolments, quintupled café revenue, and built sales pipelines that run on autopilot. We're confident because the results speak for themselves — and we only take on clients we're sure we can help.</p>
         </div>
       </div>
 
@@ -1711,7 +1845,7 @@
   <div class="container">
     <h2>Start Building a Business<br/>That Grows on Its Own.</h2>
     <p>Uncover the insider strategies for launching and expanding a thriving business. Book a free 30-minute strategy call with our team — no pitch, no pressure.</p>
-    <a href="book-appointment.html" class="btn-white" target="_blank" rel="noopener">Get Started &rarr;</a>
+    <a href="/book-appointment" class="btn-white" target="_blank" rel="noopener">Get Started &rarr;</a>
   </div>
 </section>
 
@@ -1729,9 +1863,9 @@
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="workshop.html">Workshop</a></li>
-          <li><a href="agency.html">Agency</a></li>
-          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="/workshop">Workshop</a></li>
+          <li><a href="/agency">Agency</a></li>
+          <li><a href="/case-studies">Case Studies</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1748,12 +1882,12 @@
           <li><a href="https://www.instagram.com/boost_yours_au" target="_blank" rel="noopener">Instagram</a></li>
           <li><a href="https://www.linkedin.com/company/boost-yours" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="https://www.facebook.com/boostyoursau" target="_blank" rel="noopener">Facebook</a></li>
-          <li><a href="mailto:john.h@boost-yours.com">john.h@boost-yours.com</a></li>
+          <li><a href="mailto:info@boost-yours.com">info@boost-yours.com</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Boost Yours. All rights reserved. &nbsp;·&nbsp; 8 White Hart Dr, Rouse Hill NSW 2155, Australia</p>
+      <p>&copy; 2026 Boost Yours. All rights reserved. &nbsp;·&nbsp; 8 White Hart Dr, Rouse Hill NSW 2155, Australia &nbsp;·&nbsp; <a href="/privacy-policy" style="color:inherit;opacity:.7;">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms-of-use" style="color:inherit;opacity:.7;">Terms of Use</a></p>
       <div class="footer-socials">
         <a href="https://www.instagram.com/boost_yours_au" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="https://www.linkedin.com/company/boost-yours" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -1860,7 +1994,7 @@
         ? 'https://fast.wistia.net/embed/iframe/' + videoId + '?autoPlay=true&playerColor=FF0000'
         : 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0';
       videoModalContent.innerHTML =
-        '<iframe src="' + src + '" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+        '<iframe src="' + src + '" allow="autoplay; fullscreen" allowfullscreen title="Video testimonial"></iframe>';
       videoModal.classList.add('active');
       document.body.style.overflow = 'hidden';
     });
