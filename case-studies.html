@@ -139,6 +139,39 @@
     }
     .cs-card:hover .cs-card-read { gap: 0.7rem; }
 
+    /* Google Reviews */
+    .reviews-section {
+      background: #fff;
+      padding: 90px 0 100px;
+      border-top: 1px solid #e5e7eb;
+    }
+    .reviews-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.5rem;
+    }
+    .reviews-header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; text-transform: uppercase;
+      letter-spacing: -0.04em; line-height: 0.96; color: var(--navy-dark);
+    }
+    .reviews-google-badge {
+      display: inline-flex; align-items: center; gap: 0.85rem; flex-wrap: wrap;
+      text-decoration: none; padding: 0.85rem 1.25rem; border: 1px solid #e5e7eb;
+      border-radius: 12px; background: #fff; box-shadow: 0 2px 14px rgba(0,0,0,0.05);
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .reviews-google-badge:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.10); transform: translateY(-2px); }
+    .reviews-google-logo { height: 22px; width: auto; }
+    .reviews-stars { color: #FBBC04; font-size: 1.05rem; letter-spacing: 0.08em; }
+    .reviews-cta-link {
+      font-size: 0.78rem; font-weight: 700; color: var(--orange);
+      text-transform: uppercase; letter-spacing: 0.1em;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+    }
+    @media (max-width: 640px) {
+      .reviews-section { padding: 60px 0 70px; }
+      .reviews-header { flex-direction: column; align-items: flex-start; }
+    }
+
     /* CTA */
     .cs-cta-section {
       background: var(--navy-dark); padding: 100px 0; text-align: center;
@@ -532,6 +565,28 @@
 </section>
 
 
+<!-- ═══════ GOOGLE REVIEWS ═══════ -->
+<section class="reviews-section">
+  <div class="container">
+    <div class="reviews-header">
+      <div class="reviews-header-left">
+        <p class="cs-eyebrow" style="color:var(--orange);">In their words</p>
+        <h2>What Our Clients<br/>Say on Google.</h2>
+      </div>
+      <a href="https://share.google/I1gwknUQ6LU1sDqFx" class="reviews-google-badge" target="_blank" rel="noopener">
+        <img src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg" alt="Google" class="reviews-google-logo"/>
+        <span class="reviews-stars">★★★★★</span>
+        <span class="reviews-cta-link">Read all reviews on Google <i class="fa fa-arrow-right"></i></span>
+      </a>
+    </div>
+
+    <!-- ▼▼▼ GOOGLE REVIEWS WIDGET (Elfsight) ▼▼▼ -->
+    <div class="elfsight-app-65b4cfa4-c8cd-43cb-952f-228875bb7194" data-elfsight-app-lazy></div>
+    <!-- ▲▲▲ GOOGLE REVIEWS WIDGET ▲▲▲ -->
+  </div>
+</section>
+
+
 <!-- ═══════ CTA ═══════ -->
 <section class="cs-cta-section">
   <div class="container">
@@ -635,5 +690,7 @@
 })();
 </script>
 <script src="animations.js"></script>
+<!-- Elfsight platform (powers the Google Reviews widget above) -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
 </body>
 </html>
