@@ -95,28 +95,38 @@
     .cs-card-image {
       width: 100%; aspect-ratio: 16/10; position: relative; overflow: hidden;
     }
+    /* Unified white logo tile */
     .cs-card-image-bg {
-      position: absolute; inset: 0; background-size: cover; background-position: center;
+      position: absolute; inset: 0;
+      background: #ffffff;
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem;
       transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
     }
-    .cs-card:hover .cs-card-image-bg { transform: scale(1.06); }
+    .cs-card:hover .cs-card-image-bg { transform: scale(1.04); }
     .cs-card-image-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(7,14,26,0.65) 0%, transparent 55%);
+      position: absolute; inset: 0; pointer-events: none;
+      border-bottom: 1px solid #ececec;
     }
     .cs-card-industry {
-      position: absolute; top: 1rem; left: 1rem;
+      position: absolute; top: 1rem; left: 1rem; z-index: 2;
       font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em;
       padding: 4px 10px; border-radius: 100px; background: var(--orange); color: #fff;
     }
+    /* Every client logo: same height, same box, true colours */
     .cs-card-logo {
-      max-height: 88px; max-width: 200px;
+      max-height: 72px; max-width: 175px;
       width: auto; height: auto; object-fit: contain;
-      mix-blend-mode: screen; opacity: 0.5;
-      transition: opacity 0.35s;
+      mix-blend-mode: normal; opacity: 1;
+      border-radius: 8px;
       pointer-events: none;
     }
-    .cs-card:hover .cs-card-logo { opacity: 0.8; }
+    /* Text fallback badge for clients without a logo file */
+    .cs-card-logo-text {
+      font-size: 1.7rem; font-weight: 900; text-transform: uppercase;
+      letter-spacing: -0.03em; line-height: 1; text-align: center;
+      color: var(--navy-dark);
+    }
 
     .cs-card-body { padding: 1.5rem 1.5rem 1.75rem; }
     .cs-card-client {
@@ -335,7 +345,7 @@
       <!-- Billbergia -->
       <a href="/billbergia" class="cs-card" data-industry="real-estate">
         <div class="cs-card-image">
-          <div class="cs-card-image-bg" style="background:linear-gradient(135deg,#0a1020 0%,#050810 100%);display:flex;align-items:center;justify-content:center;"><img class="cs-card-logo" src="logo/clients logo/Billbergia-logo.png" alt="Billbergia"/></div>
+          <div class="cs-card-image-bg"><img class="cs-card-logo" src="logo/clients logo/Billbergia-logo.png" alt="Billbergia"/></div>
           <div class="cs-card-image-overlay"></div>
           <span class="cs-card-industry">Property Development</span>
         </div>
@@ -349,7 +359,7 @@
       <!-- Vision Asset Group -->
       <a href="/vision-asset" class="cs-card" data-industry="real-estate">
         <div class="cs-card-image">
-          <div class="cs-card-image-bg" style="background:linear-gradient(135deg,#1c2e4a 0%,#0a1a2e 100%);display:flex;align-items:center;justify-content:center;"><img class="cs-card-logo" src="logo/clients logo/visionasset_final logo.jpg" alt="Vision Asset Group"/></div>
+          <div class="cs-card-image-bg"><img class="cs-card-logo" src="logo/clients logo/visionasset_final logo.jpg" alt="Vision Asset Group"/></div>
           <div class="cs-card-image-overlay"></div>
           <span class="cs-card-industry">Real Estate</span>
         </div>
@@ -363,7 +373,7 @@
       <!-- BetterLife Property - Jay -->
       <a href="/betterlife-jay" class="cs-card" data-industry="real-estate">
         <div class="cs-card-image">
-          <div class="cs-card-image-bg" style="background:linear-gradient(135deg,#0a1430 0%,#040a1c 100%);display:flex;align-items:center;justify-content:center;"><img class="cs-card-logo" src="logo/clients logo/betterlife-jay-logo.png" alt="BetterLife Property — Jay" style="mix-blend-mode:normal;opacity:1;max-height:150px;max-width:150px;border-radius:8px;"/></div>
+          <div class="cs-card-image-bg"><img class="cs-card-logo" src="logo/clients logo/betterlife-jay-logo.png" alt="BetterLife Property — Jay"/></div>
           <div class="cs-card-image-overlay"></div>
           <span class="cs-card-industry">Real Estate</span>
         </div>
@@ -377,7 +387,7 @@
       <!-- My Korean School -->
       <a href="/mks" class="cs-card" data-industry="education">
         <div class="cs-card-image">
-          <div class="cs-card-image-bg" style="background:linear-gradient(135deg,#1a3a5c 0%,#0a1e35 100%);display:flex;align-items:center;justify-content:center;"><img class="cs-card-logo" src="logo/clients logo/MKS logo.png" alt="My Korean School"/></div>
+          <div class="cs-card-image-bg"><img class="cs-card-logo" src="logo/clients logo/MKS logo.png" alt="My Korean School"/></div>
           <div class="cs-card-image-overlay"></div>
           <span class="cs-card-industry">Education</span>
         </div>
@@ -391,7 +401,7 @@
       <!-- Koala -->
       <a href="/koala" class="cs-card" data-industry="ecommerce">
         <div class="cs-card-image">
-          <div class="cs-card-image-bg" style="background:linear-gradient(135deg,#0a1a0a 0%,#05100a 100%);display:flex;align-items:center;justify-content:center;"><img class="cs-card-logo" src="logo/clients logo/koala-logo.svg" alt="Koala"/></div>
+          <div class="cs-card-image-bg"><img class="cs-card-logo" src="logo/clients logo/koala-logo.svg" alt="Koala"/></div>
           <div class="cs-card-image-overlay"></div>
           <span class="cs-card-industry">E-Commerce / Retail</span>
         </div>
@@ -405,7 +415,7 @@
       <!-- Breville -->
       <a href="/breville" class="cs-card" data-industry="enterprise">
         <div class="cs-card-image">
-          <div class="cs-card-image-bg" style="background:linear-gradient(135deg,#0a0a1a 0%,#05050d 100%);display:flex;align-items:center;justify-content:center;"><img class="cs-card-logo" src="logo/clients logo/breville-logo.jpeg" alt="Breville"/></div>
+          <div class="cs-card-image-bg"><img class="cs-card-logo" src="logo/clients logo/breville-logo.jpeg" alt="Breville"/></div>
           <div class="cs-card-image-overlay"></div>
           <span class="cs-card-industry">Consumer Electronics</span>
         </div>
@@ -419,7 +429,7 @@
       <!-- Afterglow Eatery -->
       <a href="/afterglow" class="cs-card" data-industry="hospitality">
         <div class="cs-card-image">
-          <div class="cs-card-image-bg" style="background:linear-gradient(135deg,#1a0d2e 0%,#0d0820 100%);display:flex;align-items:center;justify-content:center;"><img class="cs-card-logo" src="logo/clients logo/afterglow-logo.png" alt="Afterglow Eatery"/></div>
+          <div class="cs-card-image-bg"><img class="cs-card-logo" src="logo/clients logo/afterglow-logo.png" alt="Afterglow Eatery"/></div>
           <div class="cs-card-image-overlay"></div>
           <span class="cs-card-industry">Hospitality</span>
         </div>
@@ -433,7 +443,7 @@
       <!-- La Bouitte Sydney -->
       <a href="/la-bouitte" class="cs-card" data-industry="hospitality">
         <div class="cs-card-image">
-          <div class="cs-card-image-bg" style="background:linear-gradient(135deg,#1a0e0a 0%,#100805 100%);display:flex;align-items:center;justify-content:center;"><img class="cs-card-logo" src="logo/clients logo/la-bouitte-logo.png" alt="La Bouitte Sydney"/></div>
+          <div class="cs-card-image-bg"><img class="cs-card-logo" src="logo/clients logo/la-bouitte-logo.png" alt="La Bouitte Sydney"/></div>
           <div class="cs-card-image-overlay"></div>
           <span class="cs-card-industry">Hospitality</span>
         </div>
@@ -447,7 +457,7 @@
       <!-- OZEKI Group -->
       <a href="/ozeki" class="cs-card" data-industry="hospitality">
         <div class="cs-card-image">
-          <div class="cs-card-image-bg" style="background:linear-gradient(135deg,#1a1410 0%,#0d0a07 100%);display:flex;align-items:center;justify-content:center;"><img class="cs-card-logo" src="logo/clients logo/ozeki-logo-white.png" alt="OZEKI Group" style="mix-blend-mode:normal;"/></div>
+          <div class="cs-card-image-bg"><img class="cs-card-logo" src="logo/clients logo/ozeki-logo.png" alt="OZEKI Group"/></div>
           <div class="cs-card-image-overlay"></div>
           <span class="cs-card-industry">Hospitality</span>
         </div>
@@ -461,7 +471,7 @@
       <!-- Piccolo Latte -->
       <a href="/piccolo-latte" class="cs-card" data-industry="hospitality">
         <div class="cs-card-image">
-          <div class="cs-card-image-bg" style="background:linear-gradient(135deg,#1a1410 0%,#0a0805 100%);display:flex;align-items:center;justify-content:center;"><img class="cs-card-logo" src="logo/clients logo/piccolo-latte-logo.png" alt="Piccolo Latte" style="max-height:88px;opacity:0.9;"/></div>
+          <div class="cs-card-image-bg"><img class="cs-card-logo" src="logo/clients logo/piccolo-latte-logo.png" alt="Piccolo Latte"/></div>
           <div class="cs-card-image-overlay"></div>
           <span class="cs-card-industry">Hospitality</span>
         </div>
@@ -475,7 +485,7 @@
       <!-- Suliya Gogiya -->
       <a href="/suliya-gogiya" class="cs-card" data-industry="hospitality">
         <div class="cs-card-image">
-          <div class="cs-card-image-bg" style="background:linear-gradient(135deg,#0d0d0d 0%,#050505 100%);display:flex;align-items:center;justify-content:center;"><img class="cs-card-logo" src="logo/clients logo/suliya-gogiya-logo.png" alt="Suliya Gogiya" style="mix-blend-mode:normal;opacity:1;max-height:130px;max-width:130px;border-radius:6px;"/></div>
+          <div class="cs-card-image-bg"><img class="cs-card-logo" src="logo/clients logo/suliya-gogiya-logo.png" alt="Suliya Gogiya"/></div>
           <div class="cs-card-image-overlay"></div>
           <span class="cs-card-industry">Hospitality</span>
         </div>
@@ -489,7 +499,7 @@
       <!-- Sushi Craft -->
       <a href="/sushi-craft" class="cs-card" data-industry="hospitality">
         <div class="cs-card-image">
-          <div class="cs-card-image-bg" style="background:linear-gradient(135deg,#f5f4f2 0%,#e4e2de 100%);display:flex;align-items:center;justify-content:center;"><img class="cs-card-logo" src="logo/clients logo/sushi-craft-logo.png" alt="Sushi Craft" style="mix-blend-mode:normal;opacity:1;max-height:96px;max-width:200px;"/></div>
+          <div class="cs-card-image-bg"><img class="cs-card-logo" src="logo/clients logo/sushi-craft-logo.png" alt="Sushi Craft"/></div>
           <div class="cs-card-image-overlay"></div>
           <span class="cs-card-industry">Hospitality</span>
         </div>
@@ -503,7 +513,7 @@
       <!-- Too Good Cafe -->
       <a href="/too-good-cafe" class="cs-card" data-industry="hospitality">
         <div class="cs-card-image">
-          <div class="cs-card-image-bg" style="background:linear-gradient(135deg,#2d1a0a 0%,#1a0f05 100%);display:flex;align-items:center;justify-content:center;"><img class="cs-card-logo" src="logo/clients logo/tgc-logo.png" alt="Too Good Cafe"/></div>
+          <div class="cs-card-image-bg"><img class="cs-card-logo" src="logo/clients logo/tgc-logo.png" alt="Too Good Cafe"/></div>
           <div class="cs-card-image-overlay"></div>
           <span class="cs-card-industry">Hospitality</span>
         </div>
@@ -517,7 +527,7 @@
       <!-- Reset Medi Spa -->
       <a href="/reset-medi-spa" class="cs-card" data-industry="beauty">
         <div class="cs-card-image">
-          <div class="cs-card-image-bg" style="background:linear-gradient(135deg,#0a1a1a 0%,#051010 100%);display:flex;align-items:center;justify-content:center;"><div style="color:rgba(255,255,255,0.1);font-size:2.5rem;font-weight:900;text-transform:uppercase;letter-spacing:-0.04em;line-height:1;text-align:center;">RESET<br/>MEDI</div></div>
+          <div class="cs-card-image-bg"><div class="cs-card-logo-text">RESET<br/>MEDI</div></div>
           <div class="cs-card-image-overlay"></div>
           <span class="cs-card-industry">K-Beauty Wellness</span>
         </div>
@@ -531,7 +541,7 @@
       <!-- Inner Beauty -->
       <a href="/inner-beauty" class="cs-card" data-industry="beauty">
         <div class="cs-card-image">
-          <div class="cs-card-image-bg" style="background:linear-gradient(135deg,#1a0a1a 0%,#0d0510 100%);display:flex;align-items:center;justify-content:center;"><div style="color:rgba(255,255,255,0.1);font-size:2.5rem;font-weight:900;text-transform:uppercase;letter-spacing:-0.04em;line-height:1;text-align:center;">INNER<br/>BEAUTY</div></div>
+          <div class="cs-card-image-bg"><div class="cs-card-logo-text">INNER<br/>BEAUTY</div></div>
           <div class="cs-card-image-overlay"></div>
           <span class="cs-card-industry">Beauty &amp; Wellness</span>
         </div>
@@ -545,7 +555,7 @@
       <!-- Kozie Skin -->
       <a href="/kozie-skin" class="cs-card" data-industry="beauty">
         <div class="cs-card-image">
-          <div class="cs-card-image-bg" style="background:linear-gradient(135deg,#1a0a14 0%,#0d050c 100%);display:flex;align-items:center;justify-content:center;"><div style="color:rgba(255,255,255,0.1);font-size:2.5rem;font-weight:900;text-transform:uppercase;letter-spacing:-0.04em;line-height:1;text-align:center;">KOZIE<br/>SKIN</div></div>
+          <div class="cs-card-image-bg"><div class="cs-card-logo-text">KOZIE<br/>SKIN</div></div>
           <div class="cs-card-image-overlay"></div>
           <span class="cs-card-industry">K-Beauty Wellness</span>
         </div>
