@@ -16,7 +16,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <!-- Wistia -->
-  <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+  <script src="https://fast.wistia.com/player.js" async></script>
+  <script src="https://fast.wistia.com/embed/quv1or0bjw.js" async type="module"></script>
+  <style>wistia-player[media-id='quv1or0bjw']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/quv1or0bjw/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
 
   <!-- Shared Styles -->
   <link rel="stylesheet" href="style.css"/>
@@ -763,16 +765,7 @@
     <h2>어떻게 가능했는지, 직접 보세요.</h2>
     <p class="vsl-sub">실제로 어떤 시스템을 썼는지, 영상으로 확인해보세요.</p>
     <div class="vsl-video-wrap">
-      <div style="position:relative;width:100%;padding-bottom:56.25%;">
-        <iframe
-          src="https://fast.wistia.net/embed/iframe/ijl5l0c76c?playerColor=7248FF&videoFoam=true"
-          allowtransparency="true"
-          frameborder="0"
-          scrolling="no"
-          allowfullscreen
-          style="position:absolute;inset:0;width:100%;height:100%;border:none;" title="Embedded video">
-        </iframe>
-      </div>
+      <wistia-player media-id="quv1or0bjw" aspect="1.7777777777777777" autoplay></wistia-player>
     </div>
     <div class="cta-wrap">
       <a href="/book-appointment" class="btn-purple" target="_blank" rel="noopener">저희랑 같이 해보고 싶다면 →</a>
