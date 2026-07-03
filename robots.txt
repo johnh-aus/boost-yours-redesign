@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /offers
 Disallow: /thank-you
 
 Sitemap: https://boost-yours.com/sitemap.xml
