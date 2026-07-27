@@ -48,6 +48,32 @@
       inset: 0;
       background: linear-gradient(135deg, rgba(13,10,26,0.55) 0%, rgba(26,14,61,0.45) 100%);
       z-index: 1;
+      cursor: pointer;
+    }
+    .hero-sound-badge {
+      position: absolute;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 3;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1rem;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      background: rgba(13,10,26,0.55);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, opacity 0.4s, transform 0.2s;
+    }
+    .hero-sound-badge:hover { background: rgba(13,10,26,0.8); transform: scale(1.04); }
+    .hero-sound-badge i { color: var(--orange); font-size: 0.9rem; }
+    .hero-sound-badge.sound-on { opacity: 0; pointer-events: none; }
+    @media (max-width: 600px) {
+      .hero-sound-badge { bottom: 1rem; right: 1rem; padding: 0.5rem 0.85rem; font-size: 0.72rem; }
     }
     .hero-inner {
       position: relative;
@@ -1091,11 +1117,14 @@
 <section class="hero" id="hero">
   <!-- Video Background -->
   <div class="hero-video-wrap">
-    <video autoplay muted loop playsinline preload="metadata" poster="/assets/hero-poster.jpg">
+    <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="/assets/hero-poster.jpg">
       <source src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68bfc71efbf3b65b8694cbc3.mp4" type="video/mp4"/>
     </video>
   </div>
-  <div class="hero-overlay"></div>
+  <div class="hero-overlay" id="heroSoundToggle" role="button" tabindex="0" aria-label="Click for sound"></div>
+  <button class="hero-sound-badge" id="heroSoundBadge" type="button" aria-label="Toggle sound">
+    <i class="fas fa-volume-mute"></i><span>Click for sound</span>
+  </button>
 
   <!-- Stripe Decoration -->
 
@@ -2141,6 +2170,48 @@ if (mobileServicesToggle && mobileSubmenu) {
     mobileServicesToggle.style.setProperty('--after-content', mobileSubmenu.classList.contains('open') ? '"−"' : '"+"');
   });
 }
+
+// Hero video — click for sound
+(function() {
+  var video = document.getElementById('heroVideo');
+  var badge = document.getElementById('heroSoundBadge');
+  var toggle = document.getElementById('heroSoundToggle');
+  if (!video || !badge) return;
+  var badgeIcon = badge.querySelector('i');
+  var badgeText = badge.querySelector('span');
+
+  function updateBadge() {
+    if (video.muted) {
+      badge.classList.remove('sound-on');
+      badgeIcon.className = 'fas fa-volume-mute';
+      badgeText.textContent = 'Click for sound';
+    } else {
+      badge.classList.add('sound-on');
+      badgeIcon.className = 'fas fa-volume-up';
+      badgeText.textContent = 'Sound on';
+    }
+  }
+
+  function enableSound() {
+    video.muted = false;
+    var p = video.play();
+    if (p && p.catch) p.catch(function(){});
+    updateBadge();
+  }
+
+  function toggleSound() {
+    if (video.muted) { enableSound(); } else { video.muted = true; updateBadge(); }
+  }
+
+  badge.addEventListener('click', function(e) { e.stopPropagation(); toggleSound(); });
+  if (toggle) {
+    toggle.addEventListener('click', enableSound);
+    toggle.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); enableSound(); }
+    });
+  }
+  updateBadge();
+})();
 
 // Live date — updates every day automatically
 (function() {
