@@ -641,7 +641,7 @@
       margin: 0 auto 2.5rem;
       line-height: 1.75;
     }
-    .booking-embed {
+    .survey-embed {
       max-width: 900px;
       margin: 0 auto;
       background: #fff;
@@ -649,6 +649,29 @@
       overflow: hidden;
       box-shadow: 0 0 60px rgba(114, 72, 255, 0.2);
     }
+    .survey-embed iframe {
+      display: block;
+      width: 100%;
+      min-height: 600px;
+    }
+    .survey-skip {
+      margin: 1.25rem 0 0;
+    }
+    .survey-skip a {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      text-decoration: underline;
+    }
+    .survey-skip a:hover { color: var(--accent); }
+    .booking-embed {
+      max-width: 900px;
+      margin: 2.5rem auto 0;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(114, 72, 255, 0.2);
+    }
+    .booking-embed[hidden] { display: none; }
     .booking-embed iframe {
       display: block;
       width: 100%;
@@ -1122,11 +1145,17 @@
   <div class="lp-container">
     <span class="section-label">지금 예약하세요</span>
     <h2>무료 전략 상담 잡기</h2>
-    <p class="booking-sub">아래에서 편하신 시간을 골라주세요. 곧 뵙겠습니다.</p>
-    <div class="booking-embed">
-      <iframe src="https://link.boost-yours.com/widget/booking/a5rpBkfhRDU9LOcB9iRP" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="a5rpBkfhRDU9LOcB9iRP_1782886411384"></iframe>
-      <script src="https://link.boost-yours.com/js/form_embed.js" type="text/javascript"></script>
+    <p class="booking-sub">아래 간단한 설문에 먼저 답해주시면, 딱 맞는 시간에 상담을 예약해드릴게요.</p>
+
+    <div class="survey-embed">
+      <iframe src="https://link.boost-yours.com/widget/survey/TQitjC078z2WzgYundNC" style="border:none;width:100%;" scrolling="no" id="TQitjC078z2WzgYundNC" title="survey"></iframe>
     </div>
+    <p class="survey-skip"><a href="#" id="skipSurveyLink">설문을 마치셨나요? 예약 캘린더 보기 →</a></p>
+
+    <div class="booking-embed" id="bookingEmbed" hidden>
+      <iframe src="https://link.boost-yours.com/widget/booking/a5rpBkfhRDU9LOcB9iRP" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="a5rpBkfhRDU9LOcB9iRP_1782886411384"></iframe>
+    </div>
+    <script src="https://link.boost-yours.com/js/form_embed.js" type="text/javascript"></script>
   </div>
 </section>
 
@@ -1192,6 +1221,41 @@
     countEls.forEach(function (el) { obs.observe(el); });
   } else {
     countEls.forEach(function (el) { el.textContent = el.dataset.target; });
+  }
+
+  /* Reveal booking calendar after the survey is submitted */
+  var bookingEmbed = document.getElementById('bookingEmbed');
+  var skipSurveyLink = document.getElementById('skipSurveyLink');
+  var revealed = false;
+
+  function revealBooking() {
+    if (revealed) return;
+    revealed = true;
+    bookingEmbed.hidden = false;
+    if (skipSurveyLink) skipSurveyLink.parentElement.remove();
+    bookingEmbed.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  window.addEventListener('message', function (event) {
+    var data = event.data;
+    if (typeof data === 'string' && /form.*submit|survey.*submit/i.test(data)) {
+      revealBooking();
+      return;
+    }
+    if (Array.isArray(data) && typeof data[0] === 'string' && /submit/i.test(data[0])) {
+      revealBooking();
+      return;
+    }
+    if (data && typeof data === 'object' && typeof data.type === 'string' && /submit/i.test(data.type)) {
+      revealBooking();
+    }
+  });
+
+  if (skipSurveyLink) {
+    skipSurveyLink.addEventListener('click', function (e) {
+      e.preventDefault();
+      revealBooking();
+    });
   }
 
 })();
