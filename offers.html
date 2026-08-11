@@ -1275,13 +1275,35 @@
      (Also kept: a postMessage fallback in case the survey emits a submit
      event without redirecting.) */
   var bookingEmbed = document.getElementById('bookingEmbed');
+  var bookingFrame = bookingEmbed ? bookingEmbed.querySelector('iframe') : null;
+  var BOOKING_BASE = 'https://link.boost-yours.com/widget/booking/a5rpBkfhRDU9LOcB9iRP';
   var surveyEmbed = document.querySelector('.survey-embed');
   var bookingSub = document.querySelector('.booking-sub');
   var revealed = false;
 
+  /* Carry the survey's contact fields into the calendar so people don't
+     re-enter name/email/phone. The GHL survey redirect appends these as
+     query params (redirect URL set to
+     /offers?first_name={{contact.first_name}}&last_name={{contact.last_name}}
+     &email={{contact.email}}&phone={{contact.phone}}#book); we forward the
+     recognised keys to the booking widget, which prefills them. */
+  function prefillBooking() {
+    if (!bookingFrame) return;
+    var inParams = new URLSearchParams(location.search);
+    var out = new URLSearchParams();
+    ['first_name', 'last_name', 'name', 'email', 'phone'].forEach(function (k) {
+      var v = inParams.get(k);
+      if (v) out.set(k, v);
+    });
+    var qs = out.toString();
+    var src = qs ? (BOOKING_BASE + '?' + qs) : BOOKING_BASE;
+    if (bookingFrame.getAttribute('src') !== src) bookingFrame.setAttribute('src', src);
+  }
+
   function revealBooking() {
     if (revealed) return;
     revealed = true;
+    prefillBooking();
     if (surveyEmbed) surveyEmbed.style.display = 'none';
     if (bookingSub) bookingSub.textContent = '감사합니다! 아래에서 편하신 시간을 선택해 상담을 예약해 주세요.';
     bookingEmbed.hidden = false;
