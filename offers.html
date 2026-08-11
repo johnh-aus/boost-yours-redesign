@@ -1268,16 +1268,33 @@
     countEls.forEach(function (el) { el.textContent = el.dataset.target; });
   }
 
-  /* Reveal booking calendar after the survey is submitted */
+  /* Reveal booking calendar after the survey is submitted.
+     The GHL survey's "On Submit → Redirect" navigates the whole page, so we
+     point that redirect at this same page's #book anchor. Same-document +
+     hash = no full reload; we hide the survey and show the calendar in place.
+     (Also kept: a postMessage fallback in case the survey emits a submit
+     event without redirecting.) */
   var bookingEmbed = document.getElementById('bookingEmbed');
+  var surveyEmbed = document.querySelector('.survey-embed');
+  var bookingSub = document.querySelector('.booking-sub');
   var revealed = false;
 
   function revealBooking() {
     if (revealed) return;
     revealed = true;
+    if (surveyEmbed) surveyEmbed.style.display = 'none';
+    if (bookingSub) bookingSub.textContent = '감사합니다! 아래에서 편하신 시간을 선택해 상담을 예약해 주세요.';
     bookingEmbed.hidden = false;
     bookingEmbed.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+
+  function checkBookIntent() {
+    if (/book/i.test(location.hash) || /(?:^|[?&])book(?:=|&|$)/i.test(location.search)) {
+      revealBooking();
+    }
+  }
+  checkBookIntent();
+  window.addEventListener('hashchange', checkBookIntent);
 
   window.addEventListener('message', function (event) {
     var data = event.data;
