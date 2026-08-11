@@ -652,7 +652,14 @@
     .survey-embed iframe {
       display: block;
       width: 100%;
-      min-height: 600px;
+      /* GHL/form_embed.js injects an inflated inline height for surveys,
+         leaving a large white gap. Pin height to the survey content and
+         let taller steps scroll inside the iframe. */
+      height: 600px !important;
+      border: 0;
+    }
+    @media (max-width: 640px) {
+      .survey-embed iframe { height: 560px !important; }
     }
     .survey-skip {
       margin: 1.25rem 0 0;
@@ -1197,7 +1204,7 @@
     <p class="booking-sub">아래 간단한 설문에 먼저 답해주시면, 딱 맞는 시간에 상담을 예약해드릴게요.</p>
 
     <div class="survey-embed">
-      <iframe src="https://link.boost-yours.com/widget/survey/TQitjC078z2WzgYundNC" style="border:none;width:100%;" scrolling="no" id="TQitjC078z2WzgYundNC" title="survey"></iframe>
+      <iframe src="https://link.boost-yours.com/widget/survey/TQitjC078z2WzgYundNC" style="border:none;width:100%;height:600px;" id="TQitjC078z2WzgYundNC" title="survey"></iframe>
     </div>
     <p class="survey-skip"><a href="#" id="skipSurveyLink">설문을 마치셨나요? 예약 캘린더 보기 →</a></p>
 
