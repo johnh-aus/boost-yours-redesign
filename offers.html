@@ -646,15 +646,14 @@
        snug height and hide the overflow — the question, options and Next
        button stay visible; only the trailing white is cropped away. */
     .survey-embed {
-      max-width: 900px;
+      max-width: 560px;
       margin: 0 auto;
-      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 0 60px rgba(114, 72, 255, 0.2);
       height: 320px;
+      background: transparent;
     }
     @media (max-width: 640px) {
-      .survey-embed { height: 420px; }
+      .survey-embed { height: 420px; max-width: 100%; }
     }
     .survey-embed iframe {
       display: block;
