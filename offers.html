@@ -641,32 +641,26 @@
       margin: 0 auto 2.5rem;
       line-height: 1.75;
     }
+    /* The GHL survey page renders taller than its question card, leaving
+       white space below. Content is top-aligned, so we pin the wrapper to a
+       snug height and hide the overflow — the question, options and Next
+       button stay visible; only the trailing white is cropped away. */
     .survey-embed {
       max-width: 900px;
       margin: 0 auto;
-      background: #fff;
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 0 60px rgba(114, 72, 255, 0.2);
+      height: 320px;
     }
-    /* GHL's form_embed.js (iframe-resizer) auto-sizes the survey iframe to
-       its content height. Do NOT set a min-height/height here — any floor
-       taller than the content is exactly what leaves a white gap below the
-       survey. Let the resizer control the height. */
+    @media (max-width: 640px) {
+      .survey-embed { height: 420px; }
+    }
     .survey-embed iframe {
       display: block;
       width: 100%;
       border: 0;
     }
-    .survey-skip {
-      margin: 1.25rem 0 0;
-    }
-    .survey-skip a {
-      color: var(--text-secondary);
-      font-size: 0.85rem;
-      text-decoration: underline;
-    }
-    .survey-skip a:hover { color: var(--accent); }
     .booking-embed {
       max-width: 900px;
       margin: 2.5rem auto 0;
@@ -1203,7 +1197,6 @@
     <div class="survey-embed">
       <iframe src="https://link.boost-yours.com/widget/survey/TQitjC078z2WzgYundNC" style="border:none;width:100%;" id="TQitjC078z2WzgYundNC" title="survey"></iframe>
     </div>
-    <p class="survey-skip"><a href="#" id="skipSurveyLink">설문을 마치셨나요? 예약 캘린더 보기 →</a></p>
 
     <div class="booking-embed" id="bookingEmbed" hidden>
       <iframe src="https://link.boost-yours.com/widget/booking/a5rpBkfhRDU9LOcB9iRP" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="a5rpBkfhRDU9LOcB9iRP_1782886411384"></iframe>
@@ -1278,14 +1271,12 @@
 
   /* Reveal booking calendar after the survey is submitted */
   var bookingEmbed = document.getElementById('bookingEmbed');
-  var skipSurveyLink = document.getElementById('skipSurveyLink');
   var revealed = false;
 
   function revealBooking() {
     if (revealed) return;
     revealed = true;
     bookingEmbed.hidden = false;
-    if (skipSurveyLink) skipSurveyLink.parentElement.remove();
     bookingEmbed.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
@@ -1303,13 +1294,6 @@
       revealBooking();
     }
   });
-
-  if (skipSurveyLink) {
-    skipSurveyLink.addEventListener('click', function (e) {
-      e.preventDefault();
-      revealBooking();
-    });
-  }
 
 })();
 </script>
