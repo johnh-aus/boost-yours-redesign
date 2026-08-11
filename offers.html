@@ -641,6 +641,12 @@
       margin: 0 auto 2.5rem;
       line-height: 1.75;
     }
+    /* GHL/form_embed.js injects an inflated inline height on the survey
+       iframe, leaving a large white gap that CSS on the iframe can't beat
+       (GHL sets it inline with !important). Fix: pin the WRAPPER to a fixed
+       height with overflow:hidden so the oversized iframe is simply cropped
+       to the survey content. The empty white sits at the bottom, so cropping
+       removes it without hiding the question or the Next button. */
     .survey-embed {
       max-width: 900px;
       margin: 0 auto;
@@ -648,18 +654,16 @@
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 0 60px rgba(114, 72, 255, 0.2);
+      height: 620px;
     }
     .survey-embed iframe {
       display: block;
       width: 100%;
-      /* GHL/form_embed.js injects an inflated inline height for surveys,
-         leaving a large white gap. Pin height to the survey content and
-         let taller steps scroll inside the iframe. */
-      height: 600px !important;
+      height: 100% !important;
       border: 0;
     }
     @media (max-width: 640px) {
-      .survey-embed iframe { height: 560px !important; }
+      .survey-embed { height: 660px; }
     }
     .survey-skip {
       margin: 1.25rem 0 0;
