@@ -710,7 +710,7 @@
     .video-test-section .section-heading { color: #fff; }
     .video-test-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
       margin-top: 3rem;
     }
@@ -732,11 +732,14 @@
       height: 0;
       background: #070E1A;
     }
-    .video-test-frame iframe {
+    .video-test-frame iframe,
+    .video-test-frame video {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
       border: none;
+      display: block;
+      background: #070E1A;
     }
     .video-test-info {
       padding: 1.25rem 1.5rem;
@@ -1609,6 +1612,23 @@
     <p class="section-eyebrow">Hear It From Them</p>
     <h2 class="section-heading">Real Clients.<br/>Real Results. On Camera.</h2>
     <div class="video-test-grid">
+
+      <!-- Reset Medi Spa -->
+      <div class="video-test-card">
+        <div class="video-test-frame">
+          <iframe
+            src="https://fast.wistia.net/embed/iframe/1nz8oq2hur?playerColor=222222&videoFoam=true&autoPlay=true&muted=true"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+            title="Reset Medi Spa — Client Testimonial">
+          </iframe>
+        </div>
+        <div class="video-test-info">
+          <div class="video-test-stars">★★★★★</div>
+          <p class="video-test-name">Reset Medi Spa (K-Beauty Clinic)</p>
+          <p class="video-test-result">6 Bookings in Week 1 · 30+ Monthly Since</p>
+        </div>
+      </div>
 
       <!-- MKS Melbourne -->
       <div class="video-test-card">

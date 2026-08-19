@@ -270,6 +270,21 @@
     .tag { border: 1px solid var(--border); border-radius: 999px; padding: 0.5rem 1rem; font-size: 0.9rem; color: var(--text-secondary); }
 
     /* FAQ */
+    /* 고객 후기 영상 */
+    .video-proof { max-width: 760px; margin: 2rem 0 0; }
+    .video-proof-frame {
+      position: relative; padding-bottom: 56.25%; height: 0;
+      border-radius: 12px; overflow: hidden;
+      background: #000; border: 1px solid var(--border);
+    }
+    .video-proof-frame iframe {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      border: none; display: block; background: #000;
+    }
+    .video-proof-meta { margin-top: 1rem; }
+    .video-proof-meta strong { display: block; font-size: 0.95rem; font-weight: 700; color: #fff; }
+    .video-proof-meta span { font-size: 0.9rem; color: var(--text-secondary); }
+
     .faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 1.5rem 0; }
     .faq-item:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
     .faq-item h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.6rem; color: #fff; }
@@ -385,6 +400,24 @@
       <span class="tag">부동산</span>
       <span class="tag">교육 · 학원</span>
       <span class="tag">전문 서비스</span>
+    </div>
+  </div>
+</section>
+
+<!-- 고객 후기 영상 -->
+<section class="section">
+  <div class="lp-container">
+    <span class="section-label">고객 후기</span>
+    <h2>고객이 직접 말하는 성과</h2>
+    <p class="lead">캠페인 런칭 1주일 만에 예약 6건, 이후 매월 30건 이상 꾸준히 발생하고 있습니다. 신규 예약 고객의 패키지 구매율은 30%로, 매월 매출이 지속 성장 중입니다.</p>
+    <div class="video-proof">
+      <div class="video-proof-frame">
+        <iframe src="https://fast.wistia.net/embed/iframe/1nz8oq2hur?playerColor=7248FF&amp;videoFoam=true" allow="autoplay; fullscreen" allowfullscreen title="Reset Medi Spa 고객 후기"></iframe>
+      </div>
+      <div class="video-proof-meta">
+        <strong>Reset Medi Spa · K-Beauty 클리닉</strong>
+        <span>런칭 1주 예약 6건 · 매월 30건 지속 · 패키지 구매율 30%</span>
+      </div>
     </div>
   </div>
 </section>

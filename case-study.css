@@ -34,3 +34,13 @@
 
 /* ── Utility ── */
 .eyebrow{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:var(--orange);margin-bottom:0.75rem}.section-heading{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.04em;line-height:0.96;margin-bottom:1rem}.section-heading.dark{color:var(--navy-dark)}.section-heading.light{color:#fff}.text-center{text-align:center}.swiper-button-next,.swiper-button-prev{color:var(--orange) !important}.swiper-pagination-bullet-active{background:var(--orange) !important}
+
+
+/* ── Client video testimonial ── */
+.cs-video-section{background:var(--navy-mid);padding:80px 0}
+.cs-video-inner{max-width:820px;margin:2.5rem auto 0}
+.cs-video-frame{position:relative;padding-bottom:56.25%;height:0;border-radius:14px;overflow:hidden;background:#070E1A;border:1px solid rgba(255,255,255,0.08)}
+.cs-video-frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;display:block;background:#070E1A}
+.cs-video-meta{margin-top:1.25rem;text-align:center}
+.cs-video-meta strong{display:block;font-size:0.95rem;font-weight:700;color:#fff}
+.cs-video-meta span{font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--orange)}
