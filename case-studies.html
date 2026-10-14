@@ -113,6 +113,13 @@
       font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em;
       padding: 4px 10px; border-radius: 100px; background: var(--orange); color: #fff;
     }
+    /* Service-type badge (e.g. Consulting), sits opposite the industry tag */
+    .cs-card-service {
+      position: absolute; top: 1rem; right: 1rem; z-index: 2;
+      font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em;
+      padding: 3px 9px; border-radius: 100px; background: #fff; color: var(--navy-dark);
+      border: 1px solid rgba(0,0,0,0.12);
+    }
     /* Every client logo: same height, same box, true colours */
     .cs-card-logo {
       max-height: 72px; max-width: 175px;
@@ -335,6 +342,8 @@
       <button class="filter-btn" data-filter="education">Education</button>
       <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
       <button class="filter-btn" data-filter="enterprise">Enterprise</button>
+      <button class="filter-btn" data-filter="fitness">Health &amp; Fitness</button>
+      <button class="filter-btn" data-filter="consulting">Consulting</button>
     </div>
   </div>
 </section>
@@ -343,6 +352,85 @@
   <div class="container">
     <div class="cs-grid" id="csGrid">
       <!-- Billbergia -->
+      <a href="/coody" class="cs-card" data-industry="ecommerce">
+        <div class="cs-card-image">
+          <div class="cs-card-image-bg"><img class="cs-card-logo" src="logo/clients logo/coody-logo.png" alt="Coody"/></div>
+          <div class="cs-card-image-overlay"></div>
+          <span class="cs-card-industry">E-Commerce</span>
+        </div>
+        <div class="cs-card-body">
+          <span class="cs-card-client">Coody</span>
+          <h3>40% Revenue Growth in 2 Months<em>20×+ ROAS</em></h3>
+          <span class="cs-card-read">Read Case Study <i class="fa fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a href="/halcyon-nights" class="cs-card" data-industry="ecommerce consulting">
+        <div class="cs-card-image">
+          <div class="cs-card-image-bg"><img class="cs-card-logo" src="logo/clients logo/halcyon-nights-logo.svg" alt="Halcyon Nights"/></div>
+          <div class="cs-card-image-overlay"></div>
+          <span class="cs-card-industry">E-Commerce</span>
+          <span class="cs-card-service">Consulting</span>
+        </div>
+        <div class="cs-card-body">
+          <span class="cs-card-client">Halcyon Nights</span>
+          <h3>30% Revenue Growth in 2 Weeks<em>Following One Consulting Session</em></h3>
+          <span class="cs-card-read">Read Case Study <i class="fa fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a href="/gmgp" class="cs-card" data-industry="ecommerce">
+        <div class="cs-card-image">
+          <div class="cs-card-image-bg"><img class="cs-card-logo" src="logo/clients logo/gmgp-logo.png" alt="Good Meat Good People"/></div>
+          <div class="cs-card-image-overlay"></div>
+          <span class="cs-card-industry">Food E-Commerce</span>
+        </div>
+        <div class="cs-card-body">
+          <span class="cs-card-client">Good Meat Good People</span>
+          <h3>2× Online Revenue<em>5× ROAS</em></h3>
+          <span class="cs-card-read">Read Case Study <i class="fa fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a href="/syd-beauty-academy" class="cs-card" data-industry="education">
+        <div class="cs-card-image">
+          <div class="cs-card-image-bg"><img class="cs-card-logo" src="logo/clients logo/syd-beauty-academy-logo.jpg" alt="SYD Beauty Academy"/></div>
+          <div class="cs-card-image-overlay"></div>
+          <span class="cs-card-industry">Beauty Education</span>
+        </div>
+        <div class="cs-card-body">
+          <span class="cs-card-client">SYD Beauty Academy</span>
+          <h3>A$15,000 Revenue<em>in Month One</em></h3>
+          <span class="cs-card-read">Read Case Study <i class="fa fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a href="/rodem-athletics" class="cs-card" data-industry="fitness">
+        <div class="cs-card-image">
+          <div class="cs-card-image-bg"><img class="cs-card-logo" src="logo/clients logo/rodem-athletics-logo.jpg" alt="Rodem Athletics"/></div>
+          <div class="cs-card-image-overlay"></div>
+          <span class="cs-card-industry">Health &amp; Fitness</span>
+        </div>
+        <div class="cs-card-body">
+          <span class="cs-card-client">Rodem Athletics</span>
+          <h3>2× Revenue in 6 Months<em>Expanded Services. A Growing Team.</em></h3>
+          <span class="cs-card-read">Read Case Study <i class="fa fa-arrow-right"></i></span>
+        </div>
+      </a>
+
+      <a href="/centreline-body-clinic" class="cs-card" data-industry="fitness">
+        <div class="cs-card-image">
+          <div class="cs-card-image-bg"><img class="cs-card-logo" src="logo/clients logo/centreline-body-clinic-logo.png" alt="Centreline Body Clinic"/></div>
+          <div class="cs-card-image-overlay"></div>
+          <span class="cs-card-industry">Pilates &amp; Wellness</span>
+        </div>
+        <div class="cs-card-body">
+          <span class="cs-card-client">Centreline Body Clinic</span>
+          <h3>+A$20,000 Revenue<em>Over 6 Months</em></h3>
+          <span class="cs-card-read">Read Case Study <i class="fa fa-arrow-right"></i></span>
+        </div>
+      </a>
+
       <a href="/billbergia" class="cs-card" data-industry="real-estate">
         <div class="cs-card-image">
           <div class="cs-card-image-bg"><img class="cs-card-logo" src="logo/clients logo/Billbergia-logo.png" alt="Billbergia"/></div>
@@ -682,7 +770,7 @@
     if (!matched) { filter = 'all'; filterBtns.forEach(function (b) { b.classList.toggle('active', b.dataset.filter === 'all'); }); }
     var visible = 0;
     cards.forEach(function (card) {
-      var match = filter === 'all' || card.dataset.industry === filter;
+      var match = filter === 'all' || (card.dataset.industry || '').split(' ').indexOf(filter) !== -1;
       card.style.display = match ? '' : 'none';
       if (match) visible++;
     });

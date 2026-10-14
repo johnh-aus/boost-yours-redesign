@@ -408,6 +408,15 @@
       padding: 60px 0;
       overflow: hidden;
     }
+    .marquee-item {
+      display: flex; align-items: center; justify-content: center;
+      width: 132px; height: 64px; margin: 0 18px; flex-shrink: 0;
+      border-radius: 8px; transition: transform 0.2s;
+    }
+    .marquee-item.wide { width: 220px; }
+    .marquee-item.on-dark { background: #111; padding: 8px 14px; }
+    a.marquee-item:hover { transform: translateY(-2px); }
+    .marquee-item .marquee-logo { margin: 0; max-height: 56px; max-width: 100%; height: auto; }
     .marquee-label {
       text-align: center;
       font-size: 0.7rem;
@@ -1325,30 +1334,40 @@
      7. CLIENT MARQUEE
 ════════════════════════════════════════ -->
 <section class="marquee-section" id="clients">
-  <p class="marquee-label">Trusted by Australian businesses</p>
+  <h2 class="marquee-label">Brands We&rsquo;ve Worked With</h2>
 
   <!-- Row 1: scroll left -->
   <div class="marquee-wrap" style="margin-bottom:12px;">
     <div class="marquee-fade-l"></div>
     <div class="marquee-fade-r"></div>
     <div class="marquee-track left" id="marquee1">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0589a2cacb56f1de5cc4.jpeg" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05afdc045eb9bbf2a7da.svg" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa07e4dc045e0fe4f2edbf.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa03c7dc045e11a6f27605.jpeg" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa06c3a2cacb3f24de88b0.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0727778d65c246730702.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05fbdc045e2607f2af61.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa093787b77c40173e5b56.png" alt="Client">
+      <a class="marquee-item" href="/breville" title="Breville case study"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0589a2cacb56f1de5cc4.jpeg" alt="Breville"></a>
+      <a class="marquee-item" href="/vision-asset" title="Vision Asset Group case study"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa07e4dc045e0fe4f2edbf.png" alt="Vision Asset Group"></a>
+      <span class="marquee-item"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa06c3a2cacb3f24de88b0.png" alt="Dr.Tail"></span>
+      <span class="marquee-item"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05fbdc045e2607f2af61.png" alt="Pre-Uni New College"></span>
+      <a class="marquee-item" href="/afterglow" title="Afterglow Eatery case study"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0974a2db29c9ed47a612.png" alt="Afterglow Eatery"></a>
+      <span class="marquee-item"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0ab8dc045e4b41f35793.png" alt="AIM Heart"></span>
+      <span class="marquee-item"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0579dc045eaf03f2a29f.png" alt="Edel"></span>
+      <a class="marquee-item" href="/too-good-cafe" title="Too Good Cafe case study"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0780778d6545e97310e4.png" alt="Too Good Cafe"></a>
+      <a class="marquee-item" href="/betterlife-jay" title="BetterLife Property Group case study"><img class="marquee-logo" loading="lazy" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/6a05dd33a97d962a35cb5c42.png" alt="BetterLife Property Group"></a>
+      <a class="marquee-item" href="/coody" title="Coody case study"><img class="marquee-logo" loading="lazy" src="logo/clients logo/coody-logo.png" alt="Coody"></a>
+      <a class="marquee-item" href="/gmgp" title="Good Meat Good People case study"><img class="marquee-logo" loading="lazy" src="logo/clients logo/gmgp-logo.png" alt="Good Meat Good People"></a>
+      <a class="marquee-item" href="/centreline-body-clinic" title="Centreline Body Clinic case study"><img class="marquee-logo" loading="lazy" src="logo/clients logo/centreline-body-clinic-logo.png" alt="Centreline Body Clinic"></a>
+      <span class="marquee-item on-dark"><img class="marquee-logo" loading="lazy" src="logo/clients logo/renu-collision-logo.png" alt="RENu Collision"></span>
       <!-- duplicate for seamless loop -->
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0589a2cacb56f1de5cc4.jpeg" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05afdc045eb9bbf2a7da.svg" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa07e4dc045e0fe4f2edbf.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa03c7dc045e11a6f27605.jpeg" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa06c3a2cacb3f24de88b0.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0727778d65c246730702.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05fbdc045e2607f2af61.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa093787b77c40173e5b56.png" alt="Client">
+      <a class="marquee-item" href="/breville" title="Breville case study" aria-hidden="true" tabindex="-1"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0589a2cacb56f1de5cc4.jpeg" alt=""></a>
+      <a class="marquee-item" href="/vision-asset" title="Vision Asset Group case study" aria-hidden="true" tabindex="-1"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa07e4dc045e0fe4f2edbf.png" alt=""></a>
+      <span class="marquee-item" aria-hidden="true"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa06c3a2cacb3f24de88b0.png" alt=""></span>
+      <span class="marquee-item" aria-hidden="true"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05fbdc045e2607f2af61.png" alt=""></span>
+      <a class="marquee-item" href="/afterglow" title="Afterglow Eatery case study" aria-hidden="true" tabindex="-1"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0974a2db29c9ed47a612.png" alt=""></a>
+      <span class="marquee-item" aria-hidden="true"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0ab8dc045e4b41f35793.png" alt=""></span>
+      <span class="marquee-item" aria-hidden="true"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0579dc045eaf03f2a29f.png" alt=""></span>
+      <a class="marquee-item" href="/too-good-cafe" title="Too Good Cafe case study" aria-hidden="true" tabindex="-1"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0780778d6545e97310e4.png" alt=""></a>
+      <a class="marquee-item" href="/betterlife-jay" title="BetterLife Property Group case study" aria-hidden="true" tabindex="-1"><img class="marquee-logo" loading="lazy" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/6a05dd33a97d962a35cb5c42.png" alt=""></a>
+      <a class="marquee-item" href="/coody" title="Coody case study" aria-hidden="true" tabindex="-1"><img class="marquee-logo" loading="lazy" src="logo/clients logo/coody-logo.png" alt=""></a>
+      <a class="marquee-item" href="/gmgp" title="Good Meat Good People case study" aria-hidden="true" tabindex="-1"><img class="marquee-logo" loading="lazy" src="logo/clients logo/gmgp-logo.png" alt=""></a>
+      <a class="marquee-item" href="/centreline-body-clinic" title="Centreline Body Clinic case study" aria-hidden="true" tabindex="-1"><img class="marquee-logo" loading="lazy" src="logo/clients logo/centreline-body-clinic-logo.png" alt=""></a>
+      <span class="marquee-item on-dark" aria-hidden="true"><img class="marquee-logo" loading="lazy" src="logo/clients logo/renu-collision-logo.png" alt=""></span>
     </div>
   </div>
 
@@ -1357,27 +1376,33 @@
     <div class="marquee-fade-l"></div>
     <div class="marquee-fade-r"></div>
     <div class="marquee-track right" id="marquee2">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0974a2db29c9ed47a612.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa09f2dc045e22fcf33ab5.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0ab8dc045e4b41f35793.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05d1a2cacb869bde644b.jpeg" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0579dc045eaf03f2a29f.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa08f3778d6578ea7347cb.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0780778d6545e97310e4.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/69af934113dc9c8a555506ca.jpg" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/6a05dd33a97d962a35cb5c42.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/6a05dcfbcf7891b0faa7078c.png" alt="Client">
-      <!-- duplicate -->
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0974a2db29c9ed47a612.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa09f2dc045e22fcf33ab5.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0ab8dc045e4b41f35793.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05d1a2cacb869bde644b.jpeg" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0579dc045eaf03f2a29f.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa08f3778d6578ea7347cb.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0780778d6545e97310e4.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/69af934113dc9c8a555506ca.jpg" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/6a05dd33a97d962a35cb5c42.png" alt="Client">
-      <img class="marquee-logo" loading="lazy" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/6a05dcfbcf7891b0faa7078c.png" alt="Client">
+      <a class="marquee-item" href="/koala" title="Koala case study"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05afdc045eb9bbf2a7da.svg" alt="Koala"></a>
+      <span class="marquee-item"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa03c7dc045e11a6f27605.jpeg" alt="ODIN Estate Marketing"></span>
+      <a class="marquee-item" href="/mks" title="My Korean School case study"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0727778d65c246730702.png" alt="My Korean School"></a>
+      <span class="marquee-item"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa093787b77c40173e5b56.png" alt="Openskin"></span>
+      <a class="marquee-item" href="/la-bouitte" title="La Bouitte case study"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa09f2dc045e22fcf33ab5.png" alt="La Bouitte"></a>
+      <a class="marquee-item" href="/suliya-gogiya" title="Suliya Gogiya case study"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05d1a2cacb869bde644b.jpeg" alt="Suliya Gogiya"></a>
+      <span class="marquee-item"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa08f3778d6578ea7347cb.png" alt="Challenger"></span>
+      <a class="marquee-item" href="/rodem-athletics" title="Rodem Athletics case study"><img class="marquee-logo" loading="lazy" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/69af934113dc9c8a555506ca.jpg" alt="Rodem Athletics"></a>
+      <a class="marquee-item" href="/billbergia" title="Billbergia case study"><img class="marquee-logo" loading="lazy" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/6a05dcfbcf7891b0faa7078c.png" alt="Billbergia"></a>
+      <a class="marquee-item wide" href="/halcyon-nights" title="Halcyon Nights case study"><img class="marquee-logo" loading="lazy" src="logo/clients logo/halcyon-nights-logo.svg" alt="Halcyon Nights"></a>
+      <a class="marquee-item" href="/syd-beauty-academy" title="SYD Beauty Academy case study"><img class="marquee-logo" loading="lazy" src="logo/clients logo/syd-beauty-academy-logo.jpg" alt="SYD Beauty Academy"></a>
+      <span class="marquee-item"><img class="marquee-logo" loading="lazy" src="logo/clients logo/lydias-clinic-logo.png" alt="Lydia&#x27;s Clinic"></span>
+      <span class="marquee-item"><img class="marquee-logo" loading="lazy" src="logo/clients logo/nok-k-bbq-logo.jpg" alt="NOK K BBQ"></span>
+      <!-- duplicate for seamless loop -->
+      <a class="marquee-item" href="/koala" title="Koala case study" aria-hidden="true" tabindex="-1"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05afdc045eb9bbf2a7da.svg" alt=""></a>
+      <span class="marquee-item" aria-hidden="true"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa03c7dc045e11a6f27605.jpeg" alt=""></span>
+      <a class="marquee-item" href="/mks" title="My Korean School case study" aria-hidden="true" tabindex="-1"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa0727778d65c246730702.png" alt=""></a>
+      <span class="marquee-item" aria-hidden="true"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa093787b77c40173e5b56.png" alt=""></span>
+      <a class="marquee-item" href="/la-bouitte" title="La Bouitte case study" aria-hidden="true" tabindex="-1"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa09f2dc045e22fcf33ab5.png" alt=""></a>
+      <a class="marquee-item" href="/suliya-gogiya" title="Suliya Gogiya case study" aria-hidden="true" tabindex="-1"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa05d1a2cacb869bde644b.jpeg" alt=""></a>
+      <span class="marquee-item" aria-hidden="true"><img class="marquee-logo" loading="lazy" src="https://storage.googleapis.com/msgsndr/IB7njMZBtHrvYl0pMuAp/media/68fa08f3778d6578ea7347cb.png" alt=""></span>
+      <a class="marquee-item" href="/rodem-athletics" title="Rodem Athletics case study" aria-hidden="true" tabindex="-1"><img class="marquee-logo" loading="lazy" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/69af934113dc9c8a555506ca.jpg" alt=""></a>
+      <a class="marquee-item" href="/billbergia" title="Billbergia case study" aria-hidden="true" tabindex="-1"><img class="marquee-logo" loading="lazy" src="https://assets.cdn.filesafe.space/IB7njMZBtHrvYl0pMuAp/media/6a05dcfbcf7891b0faa7078c.png" alt=""></a>
+      <a class="marquee-item wide" href="/halcyon-nights" title="Halcyon Nights case study" aria-hidden="true" tabindex="-1"><img class="marquee-logo" loading="lazy" src="logo/clients logo/halcyon-nights-logo.svg" alt=""></a>
+      <a class="marquee-item" href="/syd-beauty-academy" title="SYD Beauty Academy case study" aria-hidden="true" tabindex="-1"><img class="marquee-logo" loading="lazy" src="logo/clients logo/syd-beauty-academy-logo.jpg" alt=""></a>
+      <span class="marquee-item" aria-hidden="true"><img class="marquee-logo" loading="lazy" src="logo/clients logo/lydias-clinic-logo.png" alt=""></span>
+      <span class="marquee-item" aria-hidden="true"><img class="marquee-logo" loading="lazy" src="logo/clients logo/nok-k-bbq-logo.jpg" alt=""></span>
     </div>
   </div>
 </section>

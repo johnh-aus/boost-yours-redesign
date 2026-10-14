@@ -30,7 +30,7 @@
 .site-footer{background:var(--navy-dark);padding:80px 0 40px}.footer-grid{display:grid;grid-template-columns:1fr;gap:2.5rem;margin-bottom:3rem}@media(min-width:640px){.footer-grid{grid-template-columns:repeat(2,1fr)}}@media(min-width:1024px){.footer-grid{grid-template-columns:2fr 1fr 1fr 1fr}}.footer-brand p{font-size:0.9rem;color:rgba(255,255,255,0.5);line-height:1.65;margin-top:1rem;max-width:280px}.footer-col h4{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.18em;color:rgba(255,255,255,0.4);margin-bottom:1.25rem}.footer-col ul{list-style:none}.footer-col ul li{margin-bottom:0.6rem}.footer-col ul li a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.9rem;transition:color 0.2s}.footer-col ul li a:hover{color:var(--orange)}.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}.footer-bottom p{font-size:0.8rem;color:rgba(255,255,255,0.3)}.footer-socials{display:flex;gap:1rem}.footer-socials a{width:36px;height:36px;border:1px solid rgba(255,255,255,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.85rem;transition:border-color 0.2s,color 0.2s}.footer-socials a:hover{border-color:var(--orange);color:var(--orange)}
 
 /* ── About ── */
-.about-section{background:#fff;padding:60px 0;border-bottom:1px solid #e5e7eb}.about-inner{max-width:740px}.about-inner p:not(.eyebrow){font-size:1.05rem;line-height:1.85;color:var(--text-muted)}
+.about-section{background:#fff;padding:60px 0 110px;border-bottom:1px solid #e5e7eb}.about-inner{max-width:740px}.about-inner p:not(.eyebrow){font-size:1.05rem;line-height:1.85;color:var(--text-muted)}
 
 /* ── Utility ── */
 .eyebrow{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:var(--orange);margin-bottom:0.75rem}.section-heading{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.04em;line-height:0.96;margin-bottom:1rem}.section-heading.dark{color:var(--navy-dark)}.section-heading.light{color:#fff}.text-center{text-align:center}.swiper-button-next,.swiper-button-prev{color:var(--orange) !important}.swiper-pagination-bullet-active{background:var(--orange) !important}
@@ -44,3 +44,6 @@
 .cs-video-meta{margin-top:1.25rem;text-align:center}
 .cs-video-meta strong{display:block;font-size:0.95rem;font-weight:700;color:#fff}
 .cs-video-meta span{font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--orange)}
+
+/* ── Result measurement note ── */
+.results-note{max-width:680px;margin:2rem auto 0;text-align:center;font-size:0.85rem;line-height:1.7;color:rgba(255,255,255,0.5)}.results-note strong{color:rgba(255,255,255,0.8)}
