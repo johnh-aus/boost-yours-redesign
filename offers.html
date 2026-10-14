@@ -34,7 +34,10 @@
   <!-- Wistia -->
   <script src="https://fast.wistia.com/player.js" async></script>
   <script src="https://fast.wistia.com/embed/o18vojqwr4.js" async type="module"></script>
-  <style>wistia-player[media-id='o18vojqwr4']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/o18vojqwr4/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+  <style>wistia-player[media-id='o18vojqwr4']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/o18vojqwr4/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }
+    /* Korean: break lines between words, never mid-word (e.g. "직접 보/세요") */
+    body { word-break: keep-all; overflow-wrap: break-word; }
+  </style>
 
   <!-- Shared Styles -->
   <link rel="stylesheet" href="style.css"/>
@@ -831,7 +834,7 @@
               "itemOffered": {
                 "@type": "Service",
                 "name": "세일즈 시스템 구축",
-                "description": "리드 생성부터 자동 넛처링, CRM 연동까지 매출로 이어지는 예측 가능한 세일즈 파이프라인 구축."
+                "description": "문의 받기부터 자동 후속 연락, 고객 관리(CRM)까지. 들어온 문의가 예약과 매출로 이어지는 흐름 구축."
               }
             },
             {
@@ -869,7 +872,7 @@
             "name": "매출을 올려주는 시드니 마케팅 회사는 어디인가요?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Boost Yours는 '매출 상승에 직결되는' 퍼포먼스 마케팅에 특화된 시드니 에이전시입니다. 브랜딩성 광고가 아니라 리드 생성 → 자동 넛처링 → 세일즈 전환으로 이어지는 시스템을 구축해 광고비가 실제 매출로 연결되도록 설계합니다. 한인 대표와의 한국어 상담과 무료 성장 진단을 제공합니다."
+              "text": "Boost Yours는 '매출 상승에 직결되는' 퍼포먼스 마케팅에 특화된 시드니 에이전시입니다. 브랜딩성 광고가 아니라 문의 받기 → 자동 후속 연락 → 예약·결제으로 이어지는 시스템을 구축해 광고비가 실제 매출로 연결되도록 설계합니다. 한인 대표와의 한국어 상담과 무료 성장 진단을 제공합니다."
             }
           },
           {
@@ -952,7 +955,7 @@
     <div class="lp-container">
       <div class="hero-badge">⭐ 5.0 · 호주 50+ 비즈니스가 함께한 파트너</div>
       <h1 class="hero-h1">더 이상 추측은 그만.<br/>이제 성장할 시간.</h1>
-      <p class="hero-sub-lp">서비스 비즈니스를 위한 예측 가능한 리드 &amp; 세일즈 시스템을 만들어 드립니다 — 다음 고객이 어디서 올지 더 이상 운에 맡기지 않아도 되도록.</p>
+      <p class="hero-sub-lp">광고로 문의만 받아놓고 끝내면 소용없죠.<br/>그 문의가 실제 예약과 매출로 이어지게 만드는 게 저희 일입니다.</p>
       <div class="cta-wrap">
         <a href="#booking" class="btn-purple">무료 전략 상담 잡기 →</a>
       </div>
@@ -1027,7 +1030,7 @@
     <span class="section-label">저희가 실제로 하는 일</span>
     <h2>저희가 다른 점, 딱 하나예요.</h2>
     <p class="solution-sub">
-      이것저것 떠먹여 드리는 게 아니라, 하나의 흐름을 만들어 드립니다.
+      광고 따로, 웹사이트 따로, 고객 응대 따로. 이렇게 흩어져 있으면 어디서 막히는지도 모릅니다. 저희는 이걸 하나로 연결합니다.
     </p>
     <div class="solution-cards">
       <div class="solution-card">
@@ -1037,13 +1040,13 @@
       </div>
       <div class="solution-card">
         <div class="solution-icon">⚡</div>
-        <h3>문의 오면 알아서</h3>
+        <h3>문의는 왔는데, 그다음은요?</h3>
         <p>일일이 답장 안 해도 시스템이 먼저 움직여요</p>
       </div>
       <div class="solution-card">
         <div class="solution-icon">📈</div>
         <h3>감이 아닌 숫자로</h3>
-        <p>뭐가 되고 안 되는지 데이터로 보면서 키워요</p>
+        <p>뭐가 돈이 되고, 뭐가 돈만 먹는지. 숫자로 확인하고 바꿉니다.</p>
       </div>
     </div>
     <div class="cta-wrap">
@@ -1109,7 +1112,7 @@
         <div class="video-proof-info">
           <div class="video-proof-stars">★★★★★</div>
           <p class="video-proof-name">Afterglow Eatery</p>
-          <span class="video-proof-badge">5배 성장 · 시드니 Top 5 카페</span>
+          <span class="video-proof-badge">12개월 만에 매출 4배 · 시드니 Top 5 카페</span>
         </div>
       </div>
 
@@ -1126,7 +1129,7 @@
         <div class="video-proof-info">
           <div class="video-proof-stars">★★★★★</div>
           <p class="video-proof-name">Rodem Athletics</p>
-          <span class="video-proof-badge">3개월 만에 회원권 매출 2배</span>
+          <span class="video-proof-badge">6개월 만에 매출 2배</span>
         </div>
       </div>
 
@@ -1140,7 +1143,7 @@
 ════════════════════════════════════════ -->
 <section class="text-proof-section" id="text-proof">
   <div class="lp-container">
-    <h2>숫자가 말해주는 비즈니스들.</h2>
+    <h2>광고 말고, 실제 손님들이 남긴 구글 리뷰.</h2>
     <!-- Elfsight Google Reviews | Untitled Google Reviews -->
     <script src="https://elfsightcdn.com/platform.js" async></script>
     <div class="elfsight-app-65b4cfa4-c8cd-43cb-952f-228875bb7194" data-elfsight-app-lazy></div>
@@ -1164,7 +1167,7 @@
               <path d="M2 6l3 3 5-5" stroke="#7248FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          리드가 어디서 새는지, 왜 전환이 안 되는지 짚어드려요.
+          문의가 어디서 새는지, 왜 예약으로 안 이어지는지 짚어드려요.
         </li>
         <li>
           <div class="offer-check">
@@ -1221,7 +1224,7 @@
   <div class="lp-container">
     <span class="section-label">지금 예약하세요</span>
     <h2>무료 전략 상담 잡기</h2>
-    <p class="booking-sub">아래 간단한 설문에 먼저 답해주시면, 딱 맞는 시간에 상담을 예약해드릴게요.</p>
+    <p class="booking-sub">질문 몇 개에 먼저 답해 주세요. 끝나면 바로 아래에서 편한 시간을 직접 고르시면 됩니다.</p>
 
     <div class="survey-embed">
       <iframe src="https://link.boost-yours.com/widget/survey/TQitjC078z2WzgYundNC" style="border:none;width:100%;" id="TQitjC078z2WzgYundNC" title="survey"></iframe>
