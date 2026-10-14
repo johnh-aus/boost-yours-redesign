@@ -34,7 +34,29 @@
   <script>
   var IN_IFRAME = false;
   try { IN_IFRAME = window.self !== window.top; } catch (e) { IN_IFRAME = true; }
-  if (IN_IFRAME) { try { window.top.location.replace(window.location.href); } catch (e) { IN_IFRAME = false; } }
+  if (IN_IFRAME) {
+    try {
+      var u = new URL(window.location.href);
+      u.searchParams.set('booked', '1');
+      window.top.location.replace(u.toString());
+    } catch (e) { IN_IFRAME = false; }
+  }
+  /* Only count a booking when we actually came out of the GHL calendar:
+     the iframe breakout above (?booked=1) or a top-level redirect from the
+     widget domain. Direct hits (bots, uptime checks, reloads) only get a
+     PageView — they were inflating Schedule ~10x over real bookings. */
+  var IS_BOOKING = false;
+  if (!IN_IFRAME) {
+    var fromWidget = /^https?:\/\/([a-z0-9-]+\.)*(link\.boost-yours\.com|leadconnectorhq\.com|msgsndr\.com)\//i.test(document.referrer);
+    var marked = /[?&]booked=1(&|$)/.test(location.search);
+    var seen = false;
+    try { seen = sessionStorage.getItem('by_booking_tracked') === '1'; } catch (e) {}
+    IS_BOOKING = (marked || fromWidget) && !seen;
+    if (IS_BOOKING) { try { sessionStorage.setItem('by_booking_tracked', '1'); } catch (e) {} }
+    if (marked && window.history && history.replaceState) {
+      history.replaceState(null, '', location.pathname + location.search.replace(/([?&])booked=1(&|$)/, '$1').replace(/[?&]$/, '') + location.hash);
+    }
+  }
   </script>
   <!-- Meta Pixel Code -->
   <script>
@@ -49,8 +71,10 @@
   'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '796036776506645');
   fbq('track', 'PageView');
-  fbq('track', 'Schedule');
-  fbq('track', 'Lead');
+  if (IS_BOOKING) {
+    fbq('track', 'Schedule');
+    fbq('track', 'Lead');
+  }
   }
   </script>
   <noscript><img height="1" width="1" style="display:none"
@@ -66,7 +90,7 @@
     if (!IN_IFRAME) {
       gtag('js', new Date());
       gtag('config', 'G-DEWSG36Q5R');
-      gtag('event', 'generate_lead', { event_category: 'booking', event_label: 'strategy_call' });
+      if (IS_BOOKING) gtag('event', 'generate_lead', { event_category: 'booking', event_label: 'strategy_call' });
     }
   </script>
 

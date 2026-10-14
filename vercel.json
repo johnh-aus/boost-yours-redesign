@@ -3,6 +3,7 @@
   "trailingSlash": false,
   "redirects": [
     { "source": "/promotion", "destination": "/offers", "permanent": true },
+    { "source": "/offer", "destination": "/offers", "permanent": true },
     { "source": "/booking", "destination": "/book-appointment", "permanent": true },
     { "source": "/case-study-detail", "destination": "/case-studies", "permanent": true }
   ]
