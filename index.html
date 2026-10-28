@@ -597,65 +597,143 @@
       background: #fff;
       padding: 80px 0;
     }
-    .team-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-      margin-top: 3rem;
-    }
-    @media (min-width: 640px) {
-      .team-grid { grid-template-columns: 1fr 1fr; }
-    }
-    .team-card {
-      border-radius: 12px;
-      overflow: hidden;
-      background: var(--light-bg);
-    }
-    .team-photo-wrap {
-      width: 100%;
-      aspect-ratio: 4/3;
+    .team-hero {
+      position: relative;
+      margin: 0 auto 3.5rem;
+      border-radius: 16px;
       overflow: hidden;
       background: var(--navy-mid);
+      box-shadow: 0 24px 60px rgba(13,10,26,0.14);
     }
-    .team-photo {
+    .team-hero img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3/2;
+      object-fit: cover;
+    }
+    .team-hero-caption {
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      padding: 2.5rem 1.5rem 1.25rem;
+      background: linear-gradient(to top, rgba(13,10,26,0.82), rgba(13,10,26,0));
+      color: #fff;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+    .team-hero-caption strong {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+    .team-hero-caption span {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.8);
+    }
+    .team-hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .team-hero-badges em {
+      font-style: normal;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(4px);
+    }
+    .team-members {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    @media (min-width: 640px) {
+      .team-members { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    }
+    @media (min-width: 992px) {
+      .team-members { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    }
+    .team-member {
+      background: var(--light-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem 1.25rem 1.4rem;
+      text-align: center;
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+    }
+    .team-member:hover {
+      transform: translateY(-4px);
+      border-color: var(--orange-pale);
+      box-shadow: 0 14px 36px rgba(114,72,255,0.12);
+    }
+    .team-avatar {
+      width: 112px;
+      height: 112px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--navy-mid);
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 2px var(--orange-pale), 0 8px 20px rgba(0,0,0,0.08);
+    }
+    .team-avatar img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: top center;
       display: block;
     }
-    .team-photo-placeholder {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, var(--navy-mid), var(--navy-dark));
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      font-weight: 900;
-      color: rgba(255,255,255,0.2);
-      letter-spacing: -0.02em;
-    }
-    .team-info { padding: 1.75rem; }
-    .team-name {
-      font-size: 1.3rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: -0.03em;
-      color: var(--navy-dark);
-      margin-bottom: 0.25rem;
-    }
-    .team-role {
-      font-size: 0.8rem;
+    .team-member-team {
+      display: inline-block;
+      font-size: 0.64rem;
       font-weight: 700;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
       color: var(--orange);
-      margin-bottom: 1rem;
+      background: var(--orange-light);
+      padding: 0.3rem 0.6rem;
+      border-radius: 999px;
+      margin-bottom: 0.7rem;
     }
-    .team-bio {
-      font-size: 0.9rem;
-      line-height: 1.7;
+    .team-member-name {
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: var(--navy-dark);
+      margin-bottom: 0.2rem;
+    }
+    .team-member-role {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-dim);
+      margin-bottom: 0.6rem;
+    }
+    .team-member-bio {
+      font-size: 0.82rem;
+      line-height: 1.6;
       color: var(--text-muted);
+    }
+    .team-member.is-lead .team-avatar {
+      width: 128px;
+      height: 128px;
+      box-shadow: 0 0 0 3px var(--orange), 0 8px 20px rgba(0,0,0,0.1);
+    }
+    @media (max-width: 639px) {
+      .team-avatar { width: 92px; height: 92px; }
+      .team-member.is-lead .team-avatar { width: 100px; height: 100px; }
+      .team-member { padding: 1.25rem 0.85rem 1.2rem; }
+      .team-hero { border-radius: 12px; margin-bottom: 2.25rem; }
+      .team-hero-caption { padding: 2rem 1rem 1rem; }
+      .team-hero-badges { display: none; }
     }
 
     /* FAQ */
@@ -1619,6 +1697,8 @@
       </div>
 
     </div>
+  </div>
+</section>
 
 <!-- Video Modal -->
 <div class="video-modal" id="videoModal" role="dialog" aria-modal="true">
@@ -1885,55 +1965,123 @@
   <div class="container">
     <div class="section-header text-center mb-4">
       <p class="section-eyebrow">The team</p>
-      <h2 class="section-heading dark">Built by People Who've<br/>Been in Your Shoes.</h2>
-      <p class="section-sub dark" style="margin:0 auto 3rem;">We're not career marketers who've never run a business. We've built, scaled, and yes — struggled with our own ventures. That's why our advice actually works.</p>
+      <h2 class="section-heading dark">A Dedicated Expert<br/>for Every Part of Your Growth.</h2>
+      <p class="section-sub dark" style="margin:0 auto 3rem;">Strategy, account management, paid media, CRM, content and social: each one is run by a specialist who does only that. No generalists stretched across everything, and no juniors learning on your budget.</p>
     </div>
-    <div class="team-grid">
 
-      <!-- John Hwang -->
-      <div class="team-card">
-        <div class="team-photo-wrap">
-          <img
-            src="photo/John_Profile.png"
-            alt="John Hwang"
-            width="1023" height="1537"
-            class="team-photo"
-            loading="lazy"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
-          />
-          <div class="team-photo-placeholder" style="display:none;">
-            <span>JH</span>
-          </div>
+    <div class="team-hero">
+      <picture>
+        <source srcset="photo/team/group.webp" type="image/webp"/>
+        <img src="photo/team/group.jpg" alt="The Boost Yours team" width="1536" height="1024" loading="lazy" decoding="async"/>
+      </picture>
+      <div class="team-hero-caption">
+        <div>
+          <strong>The Boost Yours Team</strong>
+          <span>Eight specialists. Six disciplines. One plan for your business.</span>
         </div>
-        <div class="team-info">
-          <h3 class="team-name">John Hwang</h3>
-          <p class="team-role">Business Expert &amp; Founder</p>
-          <p class="team-bio">John has spent over a decade across Korea, Australia, and the UK building marketing systems for service businesses. With a background spanning digital strategy, paid media, and CRM automation, he's helped businesses across education, real estate, and hospitality grow predictably — without burning through budgets or locking into dead-end retainers. His obsession: making complex marketing simple.</p>
+        <div class="team-hero-badges">
+          <em>Strategy</em><em>Account</em><em>Paid Media</em><em>CRM</em><em>Content</em><em>Social</em>
         </div>
       </div>
+    </div>
 
-      <!-- Mieun Lee -->
-      <div class="team-card">
-        <div class="team-photo-wrap">
-          <img
-            src="photo/Mieun_Profile.png"
-            alt="Mieun Lee"
-            width="1254" height="1254"
-            class="team-photo"
-            loading="lazy"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
-          />
-          <div class="team-photo-placeholder" style="display:none;">
-            <span>ML</span>
-          </div>
+    <div class="team-members">
+      <div class="team-member is-lead">
+        <div class="team-avatar">
+          <picture>
+            <source srcset="photo/team/john.webp" type="image/webp"/>
+            <img src="photo/team/john.jpg" alt="John Hwang, Founder & Strategist at Boost Yours" width="480" height="480" loading="lazy" decoding="async"/>
+          </picture>
         </div>
-        <div class="team-info">
-          <h3 class="team-name">Mieun Lee</h3>
-          <p class="team-role">Design Director</p>
-          <p class="team-bio">Mieun brings a rare combination of creative vision and analytical rigour. From brand positioning to content strategy, she ensures every Boost Yours client has a clear, differentiated voice in their market. With roots in design and a track record in scaling consumer brands, Mieun is the reason clients don't just grow — they grow with a brand people actually remember.</p>
-        </div>
+        <span class="team-member-team">Strategy</span>
+        <h3 class="team-member-name">John Hwang</h3>
+        <p class="team-member-role">Founder &amp; Strategist</p>
+        <p class="team-member-bio">Over a decade building marketing systems for service businesses across Korea, Australia and the UK. Owns the strategy behind every client plan.</p>
       </div>
-
+      <div class="team-member is-lead">
+        <div class="team-avatar">
+          <picture>
+            <source srcset="photo/team/mieun.webp" type="image/webp"/>
+            <img src="photo/team/mieun.jpg" alt="Mieun Lee, Director at Boost Yours" width="480" height="480" loading="lazy" decoding="async"/>
+          </picture>
+        </div>
+        <span class="team-member-team">Direction</span>
+        <h3 class="team-member-name">Mieun Lee</h3>
+        <p class="team-member-role">Director</p>
+        <p class="team-member-bio">Brings creative vision and analytical rigour together, making sure every client has a clear, differentiated voice in their market.</p>
+      </div>
+      <div class="team-member">
+        <div class="team-avatar">
+          <picture>
+            <source srcset="photo/team/celina.webp" type="image/webp"/>
+            <img src="photo/team/celina.jpg" alt="Celina, Account Manager at Boost Yours" width="480" height="480" loading="lazy" decoding="async"/>
+          </picture>
+        </div>
+        <span class="team-member-team">Account</span>
+        <h3 class="team-member-name">Celina</h3>
+        <p class="team-member-role">Account Manager</p>
+        <p class="team-member-bio">Your single point of contact. Keeps every campaign on schedule, on budget and reported back to you in plain English.</p>
+      </div>
+      <div class="team-member">
+        <div class="team-avatar">
+          <picture>
+            <source srcset="photo/team/abdullah.webp" type="image/webp"/>
+            <img src="photo/team/abdullah.jpg" alt="Abdullah, Media Buyer at Boost Yours" width="480" height="480" loading="lazy" decoding="async"/>
+          </picture>
+        </div>
+        <span class="team-member-team">Paid Media</span>
+        <h3 class="team-member-name">Abdullah</h3>
+        <p class="team-member-role">Media Buyer</p>
+        <p class="team-member-bio">Plans, launches and optimises paid campaigns across Meta and Google so every dollar is working toward a measurable result.</p>
+      </div>
+      <div class="team-member">
+        <div class="team-avatar">
+          <picture>
+            <source srcset="photo/team/aqsa.webp" type="image/webp"/>
+            <img src="photo/team/aqsa.jpg" alt="Aqsa, CRM Manager at Boost Yours" width="480" height="480" loading="lazy" decoding="async"/>
+          </picture>
+        </div>
+        <span class="team-member-team">CRM</span>
+        <h3 class="team-member-name">Aqsa</h3>
+        <p class="team-member-role">CRM Manager</p>
+        <p class="team-member-bio">Builds the pipelines, automations and follow-up sequences that turn new enquiries into booked customers.</p>
+      </div>
+      <div class="team-member">
+        <div class="team-avatar">
+          <picture>
+            <source srcset="photo/team/jeanyoo.webp" type="image/webp"/>
+            <img src="photo/team/jeanyoo.jpg" alt="Jeanyoo, Content Team Lead at Boost Yours" width="480" height="480" loading="lazy" decoding="async"/>
+          </picture>
+        </div>
+        <span class="team-member-team">Content</span>
+        <h3 class="team-member-name">Jeanyoo</h3>
+        <p class="team-member-role">Content Team Lead</p>
+        <p class="team-member-bio">Leads the content team, setting the direction, tone and quality bar for everything we publish on your behalf.</p>
+      </div>
+      <div class="team-member">
+        <div class="team-avatar">
+          <picture>
+            <source srcset="photo/team/nigel.webp" type="image/webp"/>
+            <img src="photo/team/nigel.jpg" alt="Nigel, Content Creator at Boost Yours" width="480" height="480" loading="lazy" decoding="async"/>
+          </picture>
+        </div>
+        <span class="team-member-team">Content</span>
+        <h3 class="team-member-name">Nigel</h3>
+        <p class="team-member-role">Content Creator</p>
+        <p class="team-member-bio">Shoots, edits and produces the videos and visuals that stop the scroll and make your brand memorable.</p>
+      </div>
+      <div class="team-member">
+        <div class="team-avatar">
+          <picture>
+            <source srcset="photo/team/rizmon.webp" type="image/webp"/>
+            <img src="photo/team/rizmon.jpg" alt="Rizmon, Social Media Manager at Boost Yours" width="480" height="480" loading="lazy" decoding="async"/>
+          </picture>
+        </div>
+        <span class="team-member-team">Social</span>
+        <h3 class="team-member-name">Rizmon</h3>
+        <p class="team-member-role">Social Media Manager</p>
+        <p class="team-member-bio">Runs your social channels day to day: planning, posting, community management and performance tracking.</p>
+      </div>
     </div>
   </div>
 </section>
