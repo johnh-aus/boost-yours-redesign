@@ -2,9 +2,45 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/promotion", "destination": "/offers", "permanent": true },
-    { "source": "/offer", "destination": "/offers", "permanent": true },
-    { "source": "/booking", "destination": "/book-appointment", "permanent": true },
-    { "source": "/case-study-detail", "destination": "/case-studies", "permanent": true }
+    {
+      "source": "/promotion",
+      "destination": "/offers",
+      "permanent": true
+    },
+    {
+      "source": "/offer",
+      "destination": "/offers",
+      "permanent": true
+    },
+    {
+      "source": "/booking",
+      "destination": "/book-appointment",
+      "permanent": true
+    },
+    {
+      "source": "/case-study-detail",
+      "destination": "/case-studies",
+      "permanent": true
+    },
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home.html",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }
