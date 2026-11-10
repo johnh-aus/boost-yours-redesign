@@ -9,7 +9,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <!-- Absolute paths: this page is served at any depth (e.g. /blog/old-post). -->
   <link rel="stylesheet" href="/style.css"/>
@@ -23,7 +23,7 @@
       position: relative; overflow: hidden;
       color: var(--white);
       background:
-        radial-gradient(60% 60% at 50% 0%, rgba(239,233,222,0.35), transparent 70%),
+        radial-gradient(60% 60% at 50% 0%, rgba(114,72,255,0.35), transparent 70%),
         var(--navy-dark);
     }
     .nf-hero::before {
@@ -31,7 +31,7 @@
       position: absolute; left: 50%; top: 50%;
       transform: translate(-50%, -52%);
       font-size: clamp(14rem, 38vw, 32rem);
-      font-weight: 700; letter-spacing: -0.06em; line-height: 1;
+      font-weight: 900; letter-spacing: -0.06em; line-height: 1;
       color: rgba(255,255,255,0.035);
       pointer-events: none; user-select: none;
     }
@@ -39,14 +39,14 @@
     .nf-tag {
       display: inline-flex; align-items: center; gap: 0.5rem;
       font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
-      color: var(--d-text-2);
-      border: 1px solid rgba(239,233,222,0.5); background: rgba(239,233,222,0.15);
+      color: var(--orange-pale);
+      border: 1px solid rgba(114,72,255,0.5); background: rgba(114,72,255,0.15);
       padding: 0.45rem 0.9rem; border-radius: 999px; margin-bottom: 1.5rem;
     }
-    .nf-tag i { color: var(--d-text-2); }
+    .nf-tag i { color: var(--orange); }
     .nf-hero h1 {
       font-size: clamp(2.4rem, 6vw, 4.2rem);
-      font-weight: 700; text-transform: uppercase;
+      font-weight: 900; text-transform: uppercase;
       letter-spacing: -0.04em; line-height: 0.98;
       margin-bottom: 1.1rem;
     }
@@ -68,8 +68,8 @@
       color: var(--white); text-decoration: none;
       transition: background .2s, border-color .2s, transform .2s;
     }
-    .nf-link:hover { background: rgba(239,233,222,0.18); border-color: rgba(239,233,222,0.6); transform: translateY(-2px); }
-    .nf-link i { color: var(--d-text-2); margin-bottom: 0.5rem; display: block; font-size: 1.1rem; }
+    .nf-link:hover { background: rgba(114,72,255,0.18); border-color: rgba(114,72,255,0.6); transform: translateY(-2px); }
+    .nf-link i { color: var(--orange); margin-bottom: 0.5rem; display: block; font-size: 1.1rem; }
     .nf-link strong { display: block; font-size: 0.92rem; font-weight: 700; letter-spacing: -0.01em; }
     .nf-link small { display: block; font-size: 0.76rem; color: rgba(255,255,255,0.55); margin-top: 0.15rem; }
     .nf-page .site-footer { margin-top: 0; }
@@ -88,13 +88,13 @@
   <link rel="icon" href="/favicon.ico" sizes="48x48"/>
   <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png"/>
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"/>
-  <meta name="theme-color" content="var(--d-deep)"/>
+  <meta name="theme-color" content="#0D0A1A"/>
 </head>
 <body class="nf-page">
 
 <nav class="site-nav" id="siteNav">
   <div class="nav-inner">
-    <a href="/" class="nav-logo"><img src="/assets/logo-mark-white.png" alt="" class="nav-logo-mark" width="280" height="115"/><span>Boost Yours</span></a>
+    <a href="/" class="nav-logo"><img src="/logo/Boost yours logo/main.png" alt="Boost Yours" class="nav-logo-img"/></a>
     <ul class="nav-links">
       <li class="has-dropdown"><a href="/#offering">Services</a><ul class="nav-dropdown"><li><a href="/workshop">Workshop</a></li><li><a href="/agency">Agency</a></li></ul></li>
       <li><a href="/case-studies">Case Studies</a></li>
