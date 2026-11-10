@@ -25,7 +25,7 @@
   <meta name="twitter:description" content="한인 대표가 직접 운영하는 시드니 성과·매출 직결 마케팅. 한국어 무료 상담."/>
   <meta name="twitter:image" content="https://boost-yours.com/assets/og-image.png"/>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="style.css"/>
 
@@ -177,11 +177,11 @@
 
   <style>
     :root {
-      --bg-primary: #0F0F0F;
+      --bg-primary: var(--d-deep);
       --bg-secondary: #141418;
-      --bg-card: #1C1C2E;
-      --accent: #7248FF;
-      --accent-light: rgba(114, 72, 255, 0.15);
+      --bg-card: var(--d-card);
+      --accent: var(--accent);
+      --accent-light: rgba(239,233,222,0.10);
       --text-primary: #FFFFFF;
       --text-secondary: rgba(255, 255, 255, 0.65);
       --border: rgba(114, 72, 255, 0.3);
@@ -203,7 +203,7 @@
       letter-spacing: 0.18em; color: var(--accent); margin-bottom: 0.75rem; display: block;
     }
     h1, h2, h3 { line-height: 1.25; margin: 0 0 1rem; }
-    h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 900; letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; letter-spacing: -0.02em; }
     .lead { color: var(--text-secondary); font-size: 1.1rem; max-width: 640px; }
 
     /* CTA button */
@@ -213,7 +213,7 @@
       font-size: 1rem; cursor: pointer; text-decoration: none !important;
       transition: background 0.2s, transform 0.2s, box-shadow 0.2s; text-align: center;
     }
-    .btn-purple:hover { background: #5e38e8; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(114,72,255,0.35); }
+    .btn-purple:hover { background: var(--accent-hover); transform: translateY(-2px); }
     .btn-ghost {
       display: inline-block; border: 1px solid var(--border); color: #fff !important;
       border-radius: 8px; padding: 15px 28px; font-weight: 600; text-decoration: none !important;
@@ -228,7 +228,7 @@
       background: transparent; transition: background 0.3s, box-shadow 0.3s;
     }
     .promo-nav.scrolled {
-      background: rgba(15,15,15,0.97); box-shadow: 0 2px 20px rgba(0,0,0,0.5); backdrop-filter: blur(12px);
+      background: rgba(18,17,15,0.97); box-shadow: 0 2px 20px rgba(0,0,0,0.5); backdrop-filter: blur(12px);
     }
     .promo-nav-logo img { height: 42px; width: auto; border-radius: 6px; }
     .promo-nav-cta {
@@ -236,16 +236,16 @@
       color: #fff !important; padding: 0.65rem 1.4rem; border-radius: 6px; font-size: 0.85rem;
       font-weight: 700; text-decoration: none !important; transition: background 0.2s, transform 0.2s; white-space: nowrap;
     }
-    .promo-nav-cta:hover { background: #5e38e8; transform: translateY(-1px); }
+    .promo-nav-cta:hover { background: var(--accent-hover); transform: translateY(-1px); }
 
     /* Hero */
     .hero-k {
       padding: 9rem 0 5rem; position: relative; overflow: hidden;
       background:
-        radial-gradient(1000px 500px at 80% -10%, rgba(114,72,255,0.25), transparent 60%),
-        linear-gradient(180deg, #0A0A1A 0%, #0F0F0F 100%);
+        radial-gradient(1000px 500px at 80% -10%, rgba(239,233,222,0.25), transparent 60%),
+        linear-gradient(180deg, var(--d-bg) 0%, var(--d-deep) 100%);
     }
-    .hero-k h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; letter-spacing: -0.03em; }
+    .hero-k h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; letter-spacing: -0.03em; }
     .hero-k h1 .accent { color: var(--accent); }
     .hero-k .lead { font-size: 1.2rem; margin: 1.5rem 0 2.25rem; }
     .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
@@ -314,7 +314,7 @@
 
 <nav class="promo-nav" id="promoNav">
   <a href="/" class="promo-nav-logo">
-    <img src="logo/Boost yours logo/main.png" alt="Boost Yours"/>
+    <span style="display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:1rem;color:#efe9de;line-height:1;"><img src="/assets/logo-mark-white.png" alt="Boost Yours" style="height:14px;width:auto;display:block;"/>Boost Yours</span>
   </a>
   <a href="/book-appointment" class="promo-nav-cta">무료 상담 잡기 →</a>
 </nav>
@@ -470,7 +470,7 @@
   <div class="lp-container">
     <div class="promo-footer-inner">
       <div class="promo-footer-brand">
-        <img src="logo/Boost yours logo/main.png" alt="Boost Yours"/>
+        <span style="display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:1rem;color:#efe9de;line-height:1;"><img src="/assets/logo-mark-white.png" alt="Boost Yours" style="height:14px;width:auto;display:block;"/>Boost Yours</span>
       </div>
       <div class="promo-footer-info">
         <p>&copy; 2026 Boost Yours. All rights reserved.</p>

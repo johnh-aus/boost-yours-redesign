@@ -8,7 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <link rel="stylesheet" href="style.css"/>
 
@@ -22,27 +22,27 @@
     }
     .cs-hero-bg {
       position: absolute; inset: 0; z-index: 0;
-      background: linear-gradient(135deg, #070E1A 0%, #0B2147 60%, #070E1A 100%);
+      background: linear-gradient(135deg, var(--d-deep) 0%, var(--d-raised) 60%, var(--d-deep) 100%);
     }
     .cs-hero-stripes {
       position: absolute; right: -80px; top: 0; bottom: 0; width: 380px;
       z-index: 1; transform: skewX(-6deg); pointer-events: none;
     }
     .cs-hero-stripes span { position:absolute; top:0; bottom:0; width:36px; opacity:0.1; }
-    .cs-hero-stripes span:nth-child(1) { right:300px; background:var(--orange); }
+    .cs-hero-stripes span:nth-child(1) { right:300px; background: rgba(239,233,222,0.06); }
     .cs-hero-stripes span:nth-child(2) { right:230px; background:var(--navy-light); width:52px; opacity:0.2; }
-    .cs-hero-stripes span:nth-child(3) { right:160px; background:var(--orange); opacity:0.15; }
+    .cs-hero-stripes span:nth-child(3) { right:160px; background: rgba(239,233,222,0.06); opacity:0.15; }
     .cs-hero-stripes span:nth-child(4) { right:100px; background:var(--navy-mid); width:44px; opacity:0.18; }
-    .cs-hero-stripes span:nth-child(5) { right:50px; background:var(--orange); opacity:0.1; }
+    .cs-hero-stripes span:nth-child(5) { right:50px; background: rgba(239,233,222,0.06); opacity:0.1; }
     .cs-hero-inner { position:relative; z-index:2; }
-    .cs-eyebrow { font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.2em; color:var(--orange); margin-bottom:1rem; }
-    .cs-hero h1 { font-size:clamp(2.8rem, 7vw, 5.5rem); font-weight:900; text-transform:uppercase; letter-spacing:-0.05em; line-height:0.92; color:#fff; margin-bottom:1.25rem; }
+    .cs-eyebrow { font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.2em; color: var(--d-text-2); margin-bottom:1rem; }
+    .cs-hero h1 { font-size:clamp(2.8rem, 7vw, 5.5rem); font-weight: 700; text-transform:uppercase; letter-spacing:-0.05em; line-height:0.92; color:#fff; margin-bottom:1.25rem; }
     .cs-hero h1 span { color:var(--orange); }
     .cs-hero-sub { font-size:1.1rem; color:rgba(255,255,255,0.65); max-width:540px; line-height:1.65; }
 
     /* Stats strip */
     .cs-stats {
-      background: var(--orange);
+      background: var(--d-deep);
       padding: 24px 0;
     }
     .cs-stats-row {
@@ -50,28 +50,28 @@
       gap: 3rem; flex-wrap: wrap;
     }
     .cs-stat-item { text-align: center; }
-    .cs-stat-num { font-size: 1.8rem; font-weight: 900; color: #fff; letter-spacing: -0.04em; line-height: 1; }
+    .cs-stat-num { font-size: 1.8rem; font-weight: 700; color: #fff; letter-spacing: -0.04em; line-height: 1; }
     .cs-stat-lbl { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.8); margin-top: 3px; }
 
     /* Filter bar */
     .filter-section {
-      background: #fff;
+      background: var(--l-card);
       padding: 40px 0 0;
-      border-bottom: 1px solid #e5e7eb;
+      border-bottom: 1px solid var(--l-line);
     }
     .filter-bar {
       display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
       padding-bottom: 1px;
     }
     .filter-btn {
-      background: none; border: 2px solid #e5e7eb; border-radius: 100px;
+      background: none; border: 2px solid var(--l-line); border-radius: 100px;
       padding: 0.45rem 1.1rem; font-size: 0.8rem; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.1em;
       color: var(--text-muted); cursor: pointer; font-family: inherit;
       transition: all 0.2s; white-space: nowrap;
     }
-    .filter-btn:hover { border-color: var(--orange); color: var(--orange); }
-    .filter-btn.active { background: var(--orange); border-color: var(--orange); color: #fff; }
+    .filter-btn:hover { border-color: var(--l-line); color: var(--l-text-3); }
+    .filter-btn.active { background: var(--l-text); border-color: var(--l-line); color: #fff; }
 
     /* Grid */
     .cs-grid-section {
@@ -87,7 +87,7 @@
     .cs-card {
       display: block; text-decoration: none;
       border-radius: 12px; overflow: hidden;
-      background: #fff; box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      background: var(--l-card); box-shadow: 0 2px 16px rgba(0,0,0,0.06);
       transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s cubic-bezier(0.22,1,0.36,1);
     }
     .cs-card:hover { transform: translateY(-7px); box-shadow: 0 16px 48px rgba(0,0,0,0.13); }
@@ -98,7 +98,7 @@
     /* Unified white logo tile */
     .cs-card-image-bg {
       position: absolute; inset: 0;
-      background: #ffffff;
+      background: var(--l-card);
       display: flex; align-items: center; justify-content: center;
       padding: 1.5rem;
       transition: transform 0.6s cubic-bezier(0.22,1,0.36,1);
@@ -106,18 +106,18 @@
     .cs-card:hover .cs-card-image-bg { transform: scale(1.04); }
     .cs-card-image-overlay {
       position: absolute; inset: 0; pointer-events: none;
-      border-bottom: 1px solid #ececec;
+      border-bottom: 1px solid var(--l-line);
     }
     .cs-card-industry {
       position: absolute; top: 1rem; left: 1rem; z-index: 2;
       font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em;
-      padding: 4px 10px; border-radius: 100px; background: var(--orange); color: #fff;
+      padding: 4px 10px; border-radius: 100px; background: var(--l-text); color: #fff;
     }
     /* Service-type badge (e.g. Consulting), sits opposite the industry tag */
     .cs-card-service {
       position: absolute; top: 1rem; right: 1rem; z-index: 2;
       font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em;
-      padding: 3px 9px; border-radius: 100px; background: #fff; color: var(--navy-dark);
+      padding: 3px 9px; border-radius: 100px; background: var(--l-card); color: var(--navy-dark);
       border: 1px solid rgba(0,0,0,0.12);
     }
     /* Every client logo: same height, same box, true colours */
@@ -130,7 +130,7 @@
     }
     /* Text fallback badge for clients without a logo file */
     .cs-card-logo-text {
-      font-size: 1.7rem; font-weight: 900; text-transform: uppercase;
+      font-size: 1.7rem; font-weight: 700; text-transform: uppercase;
       letter-spacing: -0.03em; line-height: 1; text-align: center;
       color: var(--navy-dark);
     }
@@ -138,10 +138,10 @@
     .cs-card-body { padding: 1.5rem 1.5rem 1.75rem; }
     .cs-card-client {
       display: block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.16em; color: var(--orange); margin-bottom: 0.55rem;
+      letter-spacing: 0.16em; color: var(--l-text-3); margin-bottom: 0.55rem;
     }
     .cs-card-body h3 {
-      font-size: 1.2rem; font-weight: 900; text-transform: none;
+      font-size: 1.2rem; font-weight: 700; text-transform: none;
       letter-spacing: -0.02em; color: var(--navy-dark); line-height: 1.25; margin-bottom: 1.1rem;
     }
     .cs-card-body h3 em {
@@ -149,7 +149,7 @@
       color: var(--text-muted); font-size: 1rem;
     }
     .cs-card-read {
-      font-size: 0.75rem; font-weight: 700; color: var(--orange);
+      font-size: 0.75rem; font-weight: 700; color: var(--l-text-3);
       text-transform: uppercase; letter-spacing: 0.12em;
       display: inline-flex; align-items: center; gap: 0.4rem;
       transition: gap 0.2s;
@@ -158,29 +158,29 @@
 
     /* Google Reviews */
     .reviews-section {
-      background: #fff;
+      background: var(--l-card);
       padding: 90px 0 100px;
-      border-top: 1px solid #e5e7eb;
+      border-top: 1px solid var(--l-line);
     }
     .reviews-header {
       display: flex; align-items: flex-end; justify-content: space-between;
       flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.5rem;
     }
     .reviews-header h2 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 900; text-transform: uppercase;
+      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; text-transform: uppercase;
       letter-spacing: -0.04em; line-height: 0.96; color: var(--navy-dark);
     }
     .reviews-google-badge {
       display: inline-flex; align-items: center; gap: 0.85rem; flex-wrap: wrap;
-      text-decoration: none; padding: 0.85rem 1.25rem; border: 1px solid #e5e7eb;
-      border-radius: 12px; background: #fff; box-shadow: 0 2px 14px rgba(0,0,0,0.05);
+      text-decoration: none; padding: 0.85rem 1.25rem; border: 1px solid var(--l-line);
+      border-radius: 12px; background: var(--l-card); box-shadow: 0 2px 14px rgba(0,0,0,0.05);
       transition: box-shadow 0.25s, transform 0.25s;
     }
     .reviews-google-badge:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.10); transform: translateY(-2px); }
     .reviews-google-logo { height: 22px; width: auto; }
     .reviews-stars { color: #FBBC04; font-size: 1.05rem; letter-spacing: 0.08em; }
     .reviews-cta-link {
-      font-size: 0.78rem; font-weight: 700; color: var(--orange);
+      font-size: 0.78rem; font-weight: 700; color: var(--l-text-3);
       text-transform: uppercase; letter-spacing: 0.1em;
       display: inline-flex; align-items: center; gap: 0.4rem;
     }
@@ -194,7 +194,7 @@
       background: var(--navy-dark); padding: 100px 0; text-align: center;
     }
     .cs-cta-section h2 {
-      font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 900; text-transform: uppercase;
+      font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 700; text-transform: uppercase;
       letter-spacing: -0.04em; line-height: 0.96; color: #fff; margin-bottom: 1rem;
     }
     .cs-cta-section p {
@@ -208,18 +208,18 @@
     @media (min-width:640px) { .footer-grid { grid-template-columns:repeat(2,1fr); } }
     @media (min-width:1024px) { .footer-grid { grid-template-columns:2fr 1fr 1fr 1fr; } }
     .footer-brand p { font-size:0.9rem; color:rgba(255,255,255,0.5); line-height:1.65; margin-top:1rem; max-width:280px; }
-    .footer-logo { font-size:1.4rem; font-weight:900; text-transform:uppercase; letter-spacing:-0.03em; color:#fff; }
-    .footer-logo span { color:var(--orange); }
+    .footer-logo { font-size:1.4rem; font-weight: 700; text-transform:uppercase; letter-spacing:-0.03em; color:#fff; }
+    .footer-logo span { color: var(--d-text-2); }
     .footer-col h4 { font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.18em; color:rgba(255,255,255,0.4); margin-bottom:1.25rem; }
     .footer-col ul { list-style:none; }
     .footer-col ul li { margin-bottom:0.6rem; }
     .footer-col ul li a { color:rgba(255,255,255,0.6); text-decoration:none; font-size:0.9rem; transition:color 0.2s; }
-    .footer-col ul li a:hover { color:var(--orange); }
+    .footer-col ul li a:hover { color: var(--d-text-2); }
     .footer-bottom { border-top:1px solid rgba(255,255,255,0.08); padding-top:2rem; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
     .footer-bottom p { font-size:0.8rem; color:rgba(255,255,255,0.3); }
     .footer-socials { display:flex; gap:1rem; }
     .footer-socials a { width:36px; height:36px; border:1px solid rgba(255,255,255,0.15); border-radius:50%; display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,0.5); text-decoration:none; font-size:0.85rem; transition:border-color 0.2s,color 0.2s; }
-    .footer-socials a:hover { border-color:var(--orange); color:var(--orange); }
+    .footer-socials a:hover { border-color: var(--d-line); color: var(--d-text-2); }
   </style>
   <!-- Meta Pixel Code -->
   <script>
@@ -267,14 +267,14 @@
   <link rel="icon" href="/favicon.ico" sizes="48x48"/>
   <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png"/>
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"/>
-  <meta name="theme-color" content="#0F0F0F"/>
+  <meta name="theme-color" content="var(--d-deep)"/>
 </head>
 <body>
 
 <!-- ═══════ NAV ═══════ -->
 <nav class="site-nav" id="siteNav">
   <div class="nav-inner">
-    <a href="/" class="nav-logo"><img src="logo/Boost yours logo/main.png" alt="Boost Yours" class="nav-logo-img"/></a>
+    <a href="/" class="nav-logo"><img src="/assets/logo-mark-white.png" alt="" class="nav-logo-mark" width="280" height="115"/><span>Boost Yours</span></a>
     <ul class="nav-links">
       <li class="has-dropdown"><a href="/#offering">Services</a><ul class="nav-dropdown"><li><a href="/workshop">Workshop</a></li><li><a href="/agency">Agency</a></li></ul></li>
       <li><a href="/case-studies" class="active">Case Studies</a></li>
@@ -656,7 +656,7 @@
 
       <!-- No results message -->
       <div id="noResults" style="display:none; text-align:center; padding:4rem 0; color:var(--text-muted);">
-        <p style="font-size:1.1rem;">No case studies in this category yet. <a href="/book-appointment" style="color:var(--orange);">Be the first.</a></p>
+        <p style="font-size:1.1rem;">No case studies in this category yet. <a href="/book-appointment" style="color:var(--d-text-3);">Be the first.</a></p>
       </div>
     </div><!-- /cs-grid -->
   </div><!-- /container -->
@@ -668,7 +668,7 @@
   <div class="container">
     <div class="reviews-header">
       <div class="reviews-header-left">
-        <p class="cs-eyebrow" style="color:var(--orange);">In their words</p>
+        <p class="cs-eyebrow" style="color:var(--d-text-3);">In their words</p>
         <h2>What Our Clients<br/>Say on Google.</h2>
       </div>
       <a href="https://share.google/I1gwknUQ6LU1sDqFx" class="reviews-google-badge" target="_blank" rel="noopener">
@@ -700,7 +700,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="logo/Boost yours logo/main.png" alt="Boost Yours" style="height:52px;width:auto;border-radius:8px;"/>
+        <a href="/" class="footer-logo" style="display:inline-flex;align-items:center;gap:10px;font-size:1rem;font-weight:600;color:var(--d-text);text-transform:none;letter-spacing:0;"><img src="/assets/logo-mark-white.png" alt="" style="height:14px;width:auto;"/><span>Boost Yours</span></a>
         <p>We build predictable lead &amp; sales systems for Australian service businesses.</p>
       </div>
       <div class="footer-col">
